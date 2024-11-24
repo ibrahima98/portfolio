@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Styles de base pour toutes les pages */
+@layer base {
+  /* Style de base uniforme */
+  body {
+    @apply text-base font-normal text-slate-800 dark:text-slate-200 antialiased;
+  }
+
+  /* Tous les titres en même couleur */
+  h1, h2, h3, h4 {
+    @apply text-slate-900 dark:text-slate-50;
+  }
+
+  /* Tous les textes normaux en même couleur */
+  p, li, small {
+    @apply text-slate-800 dark:text-slate-200;
+  }
+
+  /* Texte important en même couleur que les titres */
+  strong, b, em, i {
+    @apply text-slate-900 dark:text-slate-50;
+  }
+
+  /* Liens en violet cohérent */
+  a {
+    @apply text-violet-600 hover:text-violet-500 dark:text-violet-400 dark:hover:text-violet-300;
+  }
+
+  /* Listes */
+  ul {
+    @apply list-disc list-inside mb-6 space-y-2;
+  }
+
+  ol {
+    @apply list-decimal list-inside mb-6 space-y-2;
+  }
+
+  li {
+    @apply text-base md:text-lg leading-relaxed text-slate-800 dark:text-slate-200;
+  }
+
+  /* Texte en surbrillance */
+  ::selection {
+    @apply bg-violet-200 dark:bg-violet-800;
+  }
+
+  /* Styles pour le texte plus petit */
+  small {
+    @apply text-sm text-slate-600 dark:text-slate-400;
+  }
+
+  /* Style pour le texte important */
+  strong, b {
+    @apply font-semibold text-slate-900 dark:text-slate-50;
+  }
+
+  /* Style pour le texte en italique */
+  em, i {
+    @apply italic text-slate-900 dark:text-slate-50;
+  }
+}
+
+/* Classes utilitaires pour la typographie */
+@layer components {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-violet-600 to-purple-600;
+  }
+
+  .heading-xl {
+    @apply text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-50 tracking-tight;
+  }
+
+  .heading-lg {
+    @apply text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-50 tracking-tight;
+  }
+
+  .heading-md {
+    @apply text-2xl md:text-3xl font-semibold text-slate-900 dark:text-slate-50;
+  }
+
+  .body-lg {
+    @apply text-lg md:text-xl text-slate-800 dark:text-slate-200 leading-relaxed;
+  }
+
+  .body-base {
+    @apply text-base md:text-lg text-slate-800 dark:text-slate-200 leading-relaxed;
+  }
+
+  .body-sm {
+    @apply text-sm text-slate-600 dark:text-slate-400 leading-relaxed;
+  }
+}
+
+/* Style spécifique pour les articles */
+.prose {
+  @apply text-slate-800 dark:text-slate-200;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  @apply text-slate-900 dark:text-slate-50;
+}
+
+.prose p {
+  @apply mb-6 leading-relaxed;
+}
+
+.prose a {
+  @apply text-violet-600 hover:text-violet-500 transition-colors dark:text-violet-400 dark:hover:text-violet-300;
+}
+
+.prose img {
+  @apply rounded-xl my-8;
+} 
+
+.prose blockquote {
+  @apply border-l-4 border-violet-200 dark:border-violet-800 pl-4 italic;
+}
+
+/* Styles Markdown */
+.prose h1 {
+  @apply text-3xl font-bold mb-6;
+}
+
+.prose h3 {
+  @apply text-xl font-semibold mt-6 mb-3;
+}
+
+.prose ul {
+  @apply list-disc list-inside mb-6 space-y-2;
+}
+
+.prose li {
+  @apply text-base leading-relaxed;
+}
+
+.prose code {
+  @apply bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded;
+}
+
+.prose pre {
+  @apply bg-slate-100 dark:bg-slate-800 p-4 rounded-lg my-4 overflow-x-auto;
+}
