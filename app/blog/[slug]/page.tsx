@@ -139,7 +139,7 @@ const articles = [
     author: {
       name: "LY Ibrahima",
       image: "/images/ibrahimaly.jpeg",
-      role: "Expert en Gouvernance des Données"
+      
     },
     image: "/images/gouvernance.webp"
   }
