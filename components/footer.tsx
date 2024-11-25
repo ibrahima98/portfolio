@@ -14,17 +14,17 @@ export default function Footer() {
 
         {/* Liens sociaux */}
         <div className="flex justify-center space-x-6 mb-8">
-          <Link href="https://github.com/votre-github" className="transform hover:scale-110 transition-transform">
+          <Link href="https://github.com/ibrahima98/" className="transform hover:scale-110 transition-transform">
             <Button variant="outline" size="icon" className="rounded-full">
               <Github className="h-5 w-5" />
             </Button>
           </Link>
-          <Link href="https://linkedin.com/in/votre-profil" className="transform hover:scale-110 transition-transform">
+          <Link href="https://www.linkedin.com/in/ibrahima-ly-20196b1a7/" className="transform hover:scale-110 transition-transform">
             <Button variant="outline" size="icon" className="rounded-full">
               <Linkedin className="h-5 w-5" />
             </Button>
           </Link>
-          <Link href="mailto:votre@email.com" className="transform hover:scale-110 transition-transform">
+          <Link href="mailto:papalybn@gmail.com.com" className="transform hover:scale-110 transition-transform">
             <Button variant="outline" size="icon" className="rounded-full">
               <Mail className="h-5 w-5" />
             </Button>

@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
 import { BookOpen, FolderKanban, Github, GraduationCap, Home, Linkedin, Mail, Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -26,24 +27,56 @@ const Navigation = () => {
     { href: '#parcours', label: 'Parcours', icon: GraduationCap },
     { href: '/projets', label: 'Projets', icon: FolderKanban },
     { href: '/blog', label: 'Blog', icon: BookOpen },
-    { href: '/contact', label: 'Contact', icon: Mail },
+  ];
+
+  const socialLinks = [
+    { 
+      href: 'https://github.com/ibrahima98', 
+      icon: Github, 
+      label: 'GitHub',
+      ariaLabel: 'Visitez mon profil GitHub'
+    },
+    { 
+      href: 'https://www.linkedin.com/in/ibrahima-ly-20196b1a7', 
+      icon: Linkedin, 
+      label: 'LinkedIn',
+      ariaLabel: 'Visitez mon profil LinkedIn'
+    },
+    { 
+      href: 'mailto:papalybn@gmail.com', 
+      icon: Mail, 
+      label: 'Email',
+      ariaLabel: 'Envoyez-moi un email'
+    }
   ];
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith('#')) {
       e.preventDefault();
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+      if (pathname !== '/') {
+        window.location.href = '/' + href;
+      } else {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
       }
     }
   };
 
+  const iconVariants = {
+    hover: { scale: 1.1, rotate: 5 }
+  };
+
   return (
-    <nav className={cn(
-      'fixed w-full z-50 transition-all duration-300',
-      isScrolled ? 'bg-background/80 backdrop-blur-md border-b border-[0.5px] dark:border-neutral-800/30' : 'bg-transparent'
-    )}>
+    <motion.nav 
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      className={cn(
+        'fixed w-full z-50 transition-all duration-300',
+        isScrolled ? 'bg-background/80 backdrop-blur-md border-b border-[0.5px] dark:border-neutral-800/30' : 'bg-transparent'
+      )}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
@@ -71,12 +104,29 @@ const Navigation = () => {
               </Link>
             ))}
             <div className="flex items-center space-x-2">
-              <Button variant="ghost" size="icon">
-                <Github className="h-5 w-5" />
-              </Button>
-              <Button variant="ghost" size="icon">
-                <Linkedin className="h-5 w-5" />
-              </Button>
+              {socialLinks.map((social) => (
+                <Button
+                  key={social.href}
+                  variant="ghost"
+                  size="icon"
+                  asChild
+                  aria-label={social.ariaLabel}
+                >
+                  <Link 
+                    href={social.href} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="transition-colors hover:text-primary"
+                  >
+                    <motion.div
+                      whileHover="hover"
+                      variants={iconVariants}
+                    >
+                      <social.icon className="h-5 w-5" />
+                    </motion.div>
+                  </Link>
+                </Button>
+              ))}
               <ModeToggle />
             </div>
           </div>
@@ -97,7 +147,12 @@ const Navigation = () => {
 
       {/* Navigation Mobile */}
       {isOpen && (
-        <div className="md:hidden">
+        <motion.div 
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          className="md:hidden"
+        >
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background/80 backdrop-blur-md">
             {liens.map((lien) => (
               <Link
@@ -119,17 +174,34 @@ const Navigation = () => {
               </Link>
             ))}
             <div className="flex items-center space-x-2 px-3 py-2">
-              <Button variant="ghost" size="icon">
-                <Github className="h-5 w-5" />
-              </Button>
-              <Button variant="ghost" size="icon">
-                <Linkedin className="h-5 w-5" />
-              </Button>
+              {socialLinks.map((social) => (
+                <Button
+                  key={social.href}
+                  variant="ghost"
+                  size="icon"
+                  asChild
+                  aria-label={social.ariaLabel}
+                >
+                  <Link 
+                    href={social.href} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="transition-colors hover:text-primary"
+                  >
+                    <motion.div
+                      whileHover="hover"
+                      variants={iconVariants}
+                    >
+                      <social.icon className="h-5 w-5" />
+                    </motion.div>
+                  </Link>
+                </Button>
+              ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
-    </nav>
+    </motion.nav>
   );
 };
 
