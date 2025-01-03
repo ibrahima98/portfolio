@@ -12,11 +12,19 @@ export const metadata = {
 const articles = [
   {
     title: "Sécurité et Gouvernance des Données ",
-    date: "2024-03-25",
+    date: "2024-11-25",
     description: "Plongez dans les aspects essentiels de la sécurité des données et de l'analyse prédictive. Découvrez les meilleures pratiques en matière de protection des données et comment l'analyse prédictive peut renforcer votre stratégie de sécurité.",
     slug: "securite-gouvernance-donnees",
     author: "LY Ibrahima",
     image: "/images/gouvernance.webp"
+  },
+  {
+    title: "L'IA et l'Analyse Prédictive : Un Levier pour les Données au Sénégal",
+    date: "2025-1-02",
+    description: "Explorez comment l'intelligence artificielle transforme les données au Sénégal à travers des applications d'analyse prédictive et des solutions pour la prise de décision.",
+    slug: "ia-analyse-predictive",
+    author: "LY Ibrahima",
+    image: "/images/images.jpeg"
   }
 ];
 

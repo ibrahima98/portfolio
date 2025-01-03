@@ -31,6 +31,19 @@ export default function Projets() {
 
   const projets = [
     {
+      titre: "Plateforme Web Auto-Map",
+      description: "Plateforme web pour la gestion des auto-écoles et la recherche de l'auto-école la plus proche.",
+      longDescription: "site de cartographie des auto-écoles au Sénégal",
+      image: "/images/Logo_autoecole-02.png",
+      technologies: ["Next.js", "React", "Tailwind CSS", "TypeScript", "Framer Motion", "Flask", "Python", "PostgreSQL", "Docker", "Kubernetes", "CI/CD", "AWS", "Cloud Computing"],
+      stats: {
+        commits: 120,
+        stars: 10,
+        forks: 5
+      },
+      email: "papalybn@gmail.com"
+    },
+    {
       titre: "Portfolio Personnel",
       description: "Portfolio développé avec Next.js et Tailwind CSS, présentant mes compétences et réalisations.",
       longDescription: "Une vitrine interactive de mes compétences et réalisations, construite avec les dernières technologies web.",

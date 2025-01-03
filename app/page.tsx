@@ -108,7 +108,7 @@ export default function Home() {
                   <div className="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-0" />
                   <h4 className="font-semibold">Développement Full Stack Java</h4>
                   <p className="text-sm text-muted-foreground">2022 - 2023</p>
-                  <p className="mt-2">Université numérique Cheikh Hamidou Kane (UNCK)</p>
+                  <p className="mt-2">Université numérique Cheikh Hamidou Kane (UNCK) (Programme Force-N)</p>
                 </div>
                 <div className="relative pl-8 border-l-2 border-primary/30">
                   <div className="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-0" />
@@ -123,6 +123,26 @@ export default function Home() {
             <div>
               <h3 className="text-2xl font-semibold mb-6 text-primary">Expérience Professionnelle</h3>
               <div className="space-y-8">
+
+              <div className="relative pl-8 border-l-2 border-primary/30">
+                  <div className="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-0" />
+                  <h4 className="font-semibold">Développeur Full Stack | Data Scientist </h4>
+                  <p className="text-sm text-muted-foreground">2024/09 | Dakar, Sénégal</p>
+                  <p className="mt-2">Co-fondateur Sahim Group</p>
+                  <ul className="mt-2 list-disc list-inside text-muted-foreground">
+                    <li>Mise en place de l’architecture complète du projet, incluant le frontend et le backend.
+                    </li>
+                    <li>Développement d’API RESTful avec Flask pour gérer les utilisateurs, les avis et les données des auto-écoles.
+                    </li>
+                    <li>Implémentation frontend avec Next.js et TypeScript, garantissant une expérience utilisateur fluide et réactive.</li>
+                    <li>Configuration de pipelines CI/CD avec GitHub Actions et Docker, pour automatiser les tests et le déploiement continu.</li>
+                    <li>Conception et intégration d’un système de recommandation basé sur le machine learning, optimisant la recherche et augmentant l’engagement utilisateur.</li>
+                    <li>Participation à la planification stratégique pour la mise en production prévue en 2025.
+                    </li>
+                  
+                  </ul>
+                </div>
+
                 <div className="relative pl-8 border-l-2 border-primary/30">
                   <div className="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-0" />
                   <h4 className="font-semibold">Intégrateur de Données</h4>
