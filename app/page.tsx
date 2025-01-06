@@ -130,7 +130,7 @@ export default function Home() {
                   <p className="text-sm text-muted-foreground">2024/09 | Dakar, Sénégal</p>
                   <p className="mt-2">Co-fondateur Sahim Group</p>
                   <ul className="mt-2 list-disc list-inside text-muted-foreground">
-                    <li>Mise en place de l’architecture complète du projet, incluant le frontend et le backend.
+                    <li>Mise en place de l’architecture complète du projet Auto Map, incluant le frontend et le backend.
                     </li>
                     <li>Développement d’API RESTful avec Flask pour gérer les utilisateurs, les avis et les données des auto-écoles.
                     </li>
