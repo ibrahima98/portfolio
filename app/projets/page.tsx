@@ -265,8 +265,7 @@ export default function Projets() {
                             className="w-full mt-2 text-xs font-normal"
                             onClick={() => handleContactClick(projet)}
                           >
-                            <Mail className="h-3 w-3 mr-1.5" />
-                            Me contacter
+                            <Mail className="h-3 w-3 mr-1.5" />  Me contacter
                           </Button>
                         )}
                       </div>

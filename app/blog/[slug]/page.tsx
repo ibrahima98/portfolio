@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button";
-import { Share2 } from "lucide-react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
@@ -144,68 +142,110 @@ const articles = [
     image: "/images/gouvernance.webp"
   },
   {
-    title: "L'IA et l'Analyse Prédictive : Un Levier pour les Données au Sénégal",
-    date: "2024-12-30", 
-    readTime: "12 min",
-    description: "Explorez comment l'intelligence artificielle transforme les données au Sénégal à travers des applications d'analyse prédictive et des solutions pour la prise de décision.",
-    topics: ["IA", "Analyse Prédictive", "Big Data", "Machine Learning"],
-    content: `
-      <article class=\"prose prose-lg max-w-none dark:prose-invert\">
-        <div class=\"mb-8\">
-          <p class=\"text-lg text-gray-700 dark:text-gray-300\">
-            Au Sénégal, l'intelligence artificielle (IA) s'affirme comme un élément clé dans l'exploitation des données pour anticiper les tendances et résoudre des problématiques complexes. L'analyse prédictive, un domaine phare de l'IA, transforme des secteurs tels que la santé, l'agriculture et les services financiers, offrant des opportunités sans précédent pour améliorer la prise de décision et optimiser les ressources.
+    "title": "L'IA et l'Analyse Prédictive : Un Levier pour les Données au Sénégal",
+    "date": "2024-12-30", 
+    "readTime": "15 min",
+    "description": "Découvrez comment l'intelligence artificielle transforme les données au Sénégal grâce à l'analyse prédictive et explorez ses applications concrètes dans des secteurs clés comme l'agriculture, la santé et les finances.",
+    "topics": ["IA", "Analyse Prédictive", "Big Data", "Machine Learning", "Innovation au Sénégal"],
+    "content": `
+      <article class="prose prose-lg max-w-none dark:prose-invert">
+        <div class="mb-8">
+          <p class="text-lg text-gray-700 dark:text-gray-300">
+            L'intelligence artificielle (IA) et l'analyse prédictive redéfinissent la manière dont les données sont exploitées au Sénégal. Avec l'essor de la technologie et de la numérisation, ces outils ouvrent la voie à des innovations qui répondent à des défis locaux tout en offrant des opportunités globales.
+          </p>
+          <p class="text-lg text-gray-700 dark:text-gray-300">
+            Dans ce blog, nous explorerons les concepts de l'analyse prédictive, ses applications pratiques au Sénégal, ainsi que ses défis et perspectives. Vous découvrirez comment ces technologies transforment des secteurs vitaux et pourquoi elles sont essentielles pour bâtir un avenir connecté.
           </p>
         </div>
 
-        <section class=\"mb-12\">
-          <h2 class=\"text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100\">1. Comprendre l'Analyse Prédictive</h2>
-          <p class=\"mb-6 text-gray-700 dark:text-gray-300\">
-            L'analyse prédictive utilise des algorithmes d'apprentissage automatique pour exploiter les données historiques et actuelles. Son objectif est d'identifier des modèles et d'anticiper les événements futurs avec une précision accrue. En combinant statistiques, Big Data et modèles prédictifs, elle aide à résoudre des problèmes variés.
+        <section class="mb-12">
+          <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">1. Qu'est-ce que l'Analyse Prédictive ?</h2>
+          <p class="mb-6 text-gray-700 dark:text-gray-300">
+            L'analyse prédictive est une branche de l'IA qui utilise des algorithmes pour analyser des données historiques et actuelles afin de prévoir des événements futurs. Elle repose sur plusieurs techniques :
+          </p>
+          <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
+            <li>Apprentissage supervisé et non supervisé.</li>
+            <li>Techniques de régression et de classification.</li>
+            <li>Big Data pour gérer des ensembles de données volumineux et complexes.</li>
+          </ul>
+          <p class="mb-6 text-gray-700 dark:text-gray-300">
+            En combinant ces outils, l'analyse prédictive aide les entreprises et les gouvernements à optimiser leurs ressources, anticiper les risques et améliorer la prise de décision.
           </p>
         </section>
 
-        <section class=\"mb-12\">
-          <h2 class=\"text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100\">2. Applications Pratiques au Sénégal</h2>
-
-          <h3 class=\"text-xl mb-3 text-gray-800 dark:text-gray-200\">2.1 Agriculture</h3>
-          <p class=\"mb-6 text-gray-700 dark:text-gray-300\">
-            Dans l'agriculture, l'analyse prédictive aide à prévoir les conditions météorologiques, à optimiser les rendements et à identifier précocement les maladies des cultures. Par exemple, un modèle d'apprentissage profond peut analyser des images satellites pour détecter les signes de sécheresse ou de flétrissement.
+        <section class="mb-12">
+          <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">2. Applications de l'Analyse Prédictive au Sénégal</h2>
+          
+          <h3 class="text-xl mb-3 text-gray-800 dark:text-gray-200">2.1 Agriculture</h3>
+          <p class="mb-6 text-gray-700 dark:text-gray-300">
+            Au Sénégal, l'agriculture représente une part importante de l'économie. L'analyse prédictive offre des solutions telles que :
           </p>
+          <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
+            <li>La prévision des rendements agricoles en fonction des conditions climatiques.</li>
+            <li>La détection précoce des maladies des cultures grâce à des modèles basés sur des images satellites.</li>
+            <li>La gestion optimisée de l'irrigation pour réduire le gaspillage d'eau.</li>
+          </ul>
 
-          <h3 class=\"text-xl mb-3 text-gray-800 dark:text-gray-200\">2.2 Santé</h3>
-          <p class=\"mb-6 text-gray-700 dark:text-gray-300\">
-            Les données hospitalières et les épidémiologies peuvent être analysées pour prévoir les pics de maladies, améliorer la gestion des stocks médicaux et allouer les ressources de manière efficace.
+          <h3 class="text-xl mb-3 text-gray-800 dark:text-gray-200">2.2 Santé</h3>
+          <p class="mb-6 text-gray-700 dark:text-gray-300">
+            Dans le secteur de la santé, les technologies prédictives améliorent la gestion des ressources et sauvent des vies :
           </p>
+          <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
+            <li>Prévision des épidémies pour mieux planifier les campagnes de vaccination.</li>
+            <li>Allocation efficace des stocks de médicaments en fonction des besoins prévus.</li>
+            <li>Personnalisation des traitements grâce à l'analyse des dossiers médicaux électroniques.</li>
+          </ul>
 
-          <h3 class=\"text-xl mb-3 text-gray-800 dark:text-gray-200\">2.3 Services Financiers</h3>
-          <p class=\"mb-6 text-gray-700 dark:text-gray-300\">
-            Les institutions financières s'appuient sur l'analyse prédictive pour détecter les fraudes, prévoir les risques de crédit et personnaliser les offres aux clients.
+          <h3 class="text-xl mb-3 text-gray-800 dark:text-gray-200">2.3 Services Financiers</h3>
+          <p class="mb-6 text-gray-700 dark:text-gray-300">
+            Les banques et les fintechs utilisent l'IA pour :
           </p>
+          <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
+            <li>Détecter les fraudes en temps réel.</li>
+            <li>Prédire les risques de crédit des clients.</li>
+            <li>Personnaliser les produits et services financiers en fonction des comportements des utilisateurs.</li>
+          </ul>
         </section>
 
-        <section class=\"mb-12\">
-          <h2 class=\"text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100\">3. Enjeux et Perspectives</h2>
-
-          <p class=\"mb-6 text-gray-700 dark:text-gray-300\">
-            Bien que prometteuse, l'adoption de l'IA et de l'analyse prédictive n'est pas sans défis. La disponibilité des données de qualité, la protection de la vie privée et les coûts liés à la mise en œuvre technologique sont des obstacles courants. Cependant, des initiatives telles que la formation en IA, l'utilisation de solutions cloud comme AWS SageMaker et l'établissement de cadres réglementaires peuvent faciliter leur intégration.
+        <section class="mb-12">
+          <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">3. Enjeux et Défis</h2>
+          <p class="mb-6 text-gray-700 dark:text-gray-300">
+            Malgré son potentiel, l'adoption de l'IA et de l'analyse prédictive au Sénégal est confrontée à plusieurs obstacles :
           </p>
+          <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
+            <li>Manque de données de qualité et accessibles.</li>
+            <li>Coût élevé des infrastructures technologiques nécessaires.</li>
+            <li>Problèmes liés à la protection de la vie privée et à l'éthique de l'utilisation des données.</li>
+          </ul>
+          <p class="mb-6 text-gray-700 dark:text-gray-300">
+            Pour surmonter ces défis, des initiatives sont nécessaires, comme :
+          </p>
+          <ul class="list-disc list-inside text-gray-700 dark:text-gray-300">
+            <li>La formation en IA pour développer les compétences locales.</li>
+            <li>La collaboration avec des start-ups technologiques locales.</li>
+            <li>L'adoption de solutions cloud comme AWS ou Google Cloud.</li>
+          </ul>
         </section>
 
-        <section class=\"mb-8\">
-          <h2 class=\"text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100\">Conclusion</h2>
-          <p class=\"text-gray-700 dark:text-gray-300\">
-            L'IA et l'analyse prédictive représentent des opportunités uniques pour exploiter les données au Sénégal, stimulant l'innovation dans des secteurs clés. Avec une planification adaptée et un investissement stratégique, ces technologies peuvent répondre aux besoins économiques et sociaux tout en posant les bases d'un avenir connecté et prospère.
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100">Conclusion et Appel à l'Action</h2>
+          <p class="text-gray-700 dark:text-gray-300">
+            L'IA et l'analyse prédictive ne sont pas seulement des technologies futuristes, mais des solutions actuelles qui peuvent transformer le Sénégal. En investissant dans ces outils, les entreprises et les gouvernements peuvent répondre aux défis locaux tout en s'alignant sur les tendances globales.
+          </p>
+          <p class="text-gray-700 dark:text-gray-300">
+            Si vous êtes passionné par ces sujets, je vous invite à explorer davantage mon blog ou à me contacter pour discuter de collaborations potentielles.
           </p>
         </section>
       </article>
     `,
-    slug: "ia-analyse-predictive",
-    author: {
-      name: "LY Ibrahima",
-      image: "/images/ibrahimaly.jpeg"
+    "slug": "ia-analyse-predictive",
+    "author": {
+      "name": "LY Ibrahima",
+      "image": "/images/ibrahimaly.jpeg"
     },
-    "image": "/images/images.jpeg"
+    image: "/images/images.jpeg"
 }
+
 
 
 
@@ -285,15 +325,9 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
           {/* Pied de page de l'article */}
           <footer className="mt-12 pt-6 border-t border-border">
             <div className="flex justify-between items-center">
-              <Button variant="outline" className="flex items-center space-x-2">
-                <Share2 className="h-4 w-4" />
-                <span>Partager</span>
-              </Button>
+              
 
-              <div className="space-y-2">
-                <h3 className="text-sm font-medium">Restez informé</h3>
-                <Button>S'abonner à la newsletter</Button>
-              </div>
+            
             </div>
           </footer>
         </article>
