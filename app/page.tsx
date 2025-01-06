@@ -14,7 +14,7 @@ export default function Home() {
     {
       categorie: "Ingénierie des Données",
       icon: Database,
-      items: ["ETL", "SQL", "NoSQL","Hadoop", "Spark", "Pipelines de Données", "APIs", "Cloud", "Docker", "Linux" ,"Git", "CI/CD"]
+      items: ["ETL", "SQL", "NoSQL","Hadoop", "Spark", "Pipelines de Données", "APIs", "AWS", "Docker", "Linux" ,"Git", "CI/CD"]
     },
     {
       categorie: "Science des Données & IA",
