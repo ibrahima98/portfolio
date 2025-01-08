@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 const articles = [
   {
     title: "Gouvernance et Sécurité des Données au Sénégal",
-    date: "2024-03-25", 
+    date: "2024-11-25", 
     readTime: "15 min",
     description: "Guide complet sur la gouvernance et la sécurité des données au Sénégal, incluant les aspects réglementaires, techniques et pratiques.",
     topics: ["Sécurité", "Gouvernance", "CDP", "Analyse Prédictive"],
@@ -143,7 +143,7 @@ const articles = [
   },
   {
     "title": "L'IA et l'Analyse Prédictive : Un Levier pour les Données au Sénégal",
-    "date": "2024-12-30", 
+    "date": "2025-01-02", 
     "readTime": "15 min",
     "description": "Découvrez comment l'intelligence artificielle transforme les données au Sénégal grâce à l'analyse prédictive et explorez ses applications concrètes dans des secteurs clés comme l'agriculture, la santé et les finances.",
     "topics": ["IA", "Analyse Prédictive", "Big Data", "Machine Learning", "Innovation au Sénégal"],
