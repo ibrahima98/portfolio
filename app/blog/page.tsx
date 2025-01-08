@@ -28,7 +28,7 @@ const articles = [
   },
 
  { title: "Microservices et Bonnes Pratiques : Optimiser la Gestion des Données",
-  date: "2025-01-07",
+  date: "2025-01-08",
   readTime: "15 min",
   description: "Découvrez comment l'architecture microservices peut révolutionner la gestion des données en apportant scalabilité, résilience, et flexibilité, et explorez les meilleures pratiques pour une implémentation réussie.",
   slug: "microservices-gestion-donnees",
