@@ -3,7 +3,8 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { AnimatePresence, motion } from "framer-motion";
-import { Mail } from "lucide-react";
+import { ExternalLink, Mail } from "lucide-react";
+
 
 import { useState } from "react";
 
@@ -138,7 +139,7 @@ export default function Projets() {
       longDescription:"Un système de gestion de stock développé en PHP, permettant de suivre les inventaires",
       date: "2022-03-19",
 
-      image: "/images/bib.png",
+      image: "/images/gestion-inventaire.jpg",
       githubLink: "https://github.com/ibrahima98/InventorySystem.git",
       technologies: [
          "PHP",
@@ -160,12 +161,12 @@ export default function Projets() {
     window.location.href = `mailto:papalybn@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
-  const filteredProjets = selectedCategory === "Tous" 
+  const filteredProjets = selectedCategory === "Tous"
     ? projets
-    : projets.filter(projet => {
+    : projets.filter((projet) => {
         const projectTechnologies = new Set(projet.technologies);
         return techCategories[selectedCategory as keyof typeof techCategories]
-          .some(tech => projectTechnologies.has(tech));
+          .some((tech) => projectTechnologies.has(tech));
       });
 
   return (
@@ -202,69 +203,45 @@ export default function Projets() {
                   className="max-w-sm mx-auto w-full"
                 >
                   <Card className="max-w-sm mx-auto overflow-hidden bg-white dark:bg-neutral-900 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
-                    {/* Image avec lien GitHub */}
+                    {/* Image */}
                     <div className="relative overflow-hidden group">
-                      <a href={projet.githubLink} target="_blank" rel="noopener noreferrer">
-                        <img
-                          src={projet.image}
-                          alt={projet.titre}
-                          className="w-full h-40 object-cover transform transition-transform duration-300 group-hover:scale-105"
-                        />
-                      </a>
-                      <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
-                        <p className="text-white text-sm font-light">
-                          {projet.longDescription}
-                        </p>
-                      </div>
+                      <img
+                        src={projet.image}
+                        alt={projet.titre}
+                        className="w-full h-40 object-cover transform transition-transform duration-300 group-hover:scale-105"
+                      />
                     </div>
 
                     {/* Contenu */}
                     <div className="p-4 space-y-3">
-                      {/* Titre avec lien GitHub */}
                       <div className="space-y-1">
-                        <a href={projet.githubLink} target="_blank" rel="noopener noreferrer">
-                          <h3 className="font-medium text-lg leading-tight hover:text-primary transition">
-                            {projet.titre}
-                          </h3>
-                        </a>
-                         {/* Date */}
-                        <div className="text-xs text-muted-foreground">
-                          <p>Ajouté le : {new Date(projet.date).toLocaleDateString()}</p>
-                        </div>
-                        <p className="text-xs text-muted-foreground line-clamp-2">
-                          {projet.description}
-                        </p>
+                        <h3 className="font-medium text-lg leading-tight">{projet.titre}</h3>
+                        <p className="text-xs text-muted-foreground">{projet.description}</p>
                       </div>
 
-                      {/* Technologies */}
-                      <div className="flex flex-wrap gap-1.5">
-                        {projet.technologies.slice(0, 3).map((tech) => (
-                          <span
-                            key={tech}
-                            className="px-2 py-0.5 bg-primary/5 text-primary text-xs rounded-full"
+                     {/* Bouton GitHub ou Me contacter */}
+                        {projet.githubLink ? (
+                          <a
+                            href={projet.githubLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block w-full px-3 py-2 text-center text-xs font-normal border border-gray-300 rounded-lg text-gray-700 hover:text-primary hover:border-primary transition"
                           >
-                            {tech}
-                          </span>
-                        ))}
-                        {projet.technologies.length > 3 && (
-                          <span className="px-2 py-0.5 bg-primary/5 text-primary text-xs rounded-full">
-                            +{projet.technologies.length - 3}
-                          </span>
+                            <ExternalLink className="h-3 w-3 mr-1.5 inline-block" />
+                            Voir sur GitHub
+                          </a>
+                        ) : (
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="w-full mt-2 text-xs font-normal"
+                            onClick={() => handleContactClick(projet)}
+                          >
+                            <Mail className="h-3 w-3 mr-1.5" />
+                            Me contacter
+                          </Button>
                         )}
-                      </div>
 
-                      
-
-                      {/* Bouton */}
-                      <Button 
-                        variant="outline" 
-                        size="sm" 
-                        className="w-full mt-2 text-xs font-normal"
-                        onClick={() => handleContactClick(projet)}
-                      >
-                        <Mail className="h-3 w-3 mr-1.5" />
-                        Me contacter
-                      </Button>
                     </div>
                   </Card>
                 </motion.div>
