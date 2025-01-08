@@ -25,7 +25,16 @@ const articles = [
     slug: "ia-analyse-predictive",
     author: "LY Ibrahima",
     image: "/images/images.jpeg"
-  }
+  },
+
+ { title: "Microservices et Bonnes Pratiques : Optimiser la Gestion des Données",
+  date: "2025-01-07",
+  readTime: "15 min",
+  description: "Découvrez comment l'architecture microservices peut révolutionner la gestion des données en apportant scalabilité, résilience, et flexibilité, et explorez les meilleures pratiques pour une implémentation réussie.",
+  slug: "microservices-gestion-donnees",
+  author: "LY Ibrahima",
+  image: "/images/microservice.jpg"
+}
 ];
 
 export default function BlogPage() {
