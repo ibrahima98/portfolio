@@ -212,37 +212,41 @@ export default function Projets() {
                       />
                     </div>
 
-                    {/* Contenu */}
-                    <div className="p-4 space-y-3">
-                      <div className="space-y-1">
-                        <h3 className="font-medium text-lg leading-tight">{projet.titre}</h3>
-                        <p className="text-xs text-muted-foreground">{projet.description}</p>
-                      </div>
+                          {/* Contenu */}
+                        <div className="p-4 space-y-3">
+                          {/* Titre, description, et date */}
+                          <div className="space-y-1">
+                            <h3 className="font-medium text-lg leading-tight">{projet.titre}</h3>
+                            <p className="text-xs text-muted-foreground">{projet.description}</p>
+                            <p className="text-xs text-muted-foreground">
+                              Ajouté le : {new Date(projet.date).toLocaleDateString("fr-FR")}
+                            </p>
+                          </div>
 
-                     {/* Bouton GitHub ou Me contacter */}
-                        {projet.githubLink ? (
-                          <a
-                            href={projet.githubLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block w-full px-3 py-2 text-center text-xs font-normal border border-gray-300 rounded-lg text-gray-700 hover:text-primary hover:border-primary transition"
-                          >
-                            <ExternalLink className="h-3 w-3 mr-1.5 inline-block" />
-                            Voir sur GitHub
-                          </a>
-                        ) : (
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            className="w-full mt-2 text-xs font-normal"
-                            onClick={() => handleContactClick(projet)}
-                          >
-                            <Mail className="h-3 w-3 mr-1.5" />
-                            Me contacter
-                          </Button>
-                        )}
+                          {/* Boutons */}
+                          {projet.githubLink ? (
+                            <a
+                              href={projet.githubLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="block w-full px-3 py-2 text-center text-xs font-normal border border-gray-300 rounded-lg text-gray-700 hover:text-primary hover:border-primary transition"
+                            >
+                              <ExternalLink className="h-3 w-3 mr-1.5 inline-block" />
+                              Voir sur GitHub
+                            </a>
+                          ) : (
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              className="w-full mt-2 text-xs font-normal"
+                              onClick={() => handleContactClick(projet)}
+                            >
+                              <Mail className="h-3 w-3 mr-1.5" />
+                              Me contacter
+                            </Button>
+                          )}
+                        </div>
 
-                    </div>
                   </Card>
                 </motion.div>
               ))}
