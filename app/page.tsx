@@ -127,7 +127,7 @@ export default function Home() {
               <div className="relative pl-8 border-l-2 border-primary/30">
                   <div className="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-0" />
                   <h4 className="font-semibold">Développeur Full Stack | Data Scientist </h4>
-                  <p className="text-sm text-muted-foreground">2024/09 | Dakar, Sénégal</p>
+                  <p className="text-sm text-muted-foreground">2024/08 | Dakar, Sénégal</p>
                   <p className="mt-2">Co-fondateur Sahim Group</p>
                   <ul className="mt-2 list-disc list-inside text-muted-foreground">
                     <li>Mise en place de l’architecture complète du projet Auto Map, incluant le frontend et le backend.
