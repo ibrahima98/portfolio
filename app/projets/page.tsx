@@ -25,12 +25,24 @@ export default function Projets() {
     Web: ["Next.js", "React", "Tailwind CSS", "TypeScript", "JavaScript", "HTML/CSS", "Laravel", "PHP", "Livewire"],
     Mobile: ["React Native", "Flutter", "iOS", "Android", "Mobile App"],
     IA: ["TensorFlow", "PyTorch", "OpenCV", "Scikit-learn", "CNN", "Machine Learning"],
-    Data: ["Elasticsearch", "MongoDB", "PostgreSQL", "MySQL", "Big Data", "Data Analysis"],
+    Data: ["Elasticsearch", "MongoDB", "PostgreSQL", "MySQL", "Big Data", "Data Analysis", "pandas", "seaborn", "matplotlib"],
     Backend: ["Python", "Flask", "REST API", "JWT", "PostgreSQL", "Laravel", "PHP", "JAVA", "POO"],
     DevOps: ["Docker", "Kubernetes", "CI/CD", "AWS", "Cloud Computing"]
   };
 
   const projets = [
+    {
+      titre: "Outil d'analyse et de visualisation de données",
+      description: "Outil d'analyse et de visualisation de données des données boursières utilisant l'API Yahoo Finance.",
+      longDescription: "Outil d'analyse et de visualisation de données des données boursières utilisant l'API Yahoo Finance.",
+      date: "2025-01-11",
+      image: "/images/197625880-graphiques-diagramme-diagramme-d-analyse-de-données-financières-d-entreprise.jpg",
+      githubLink: "https://github.com/ibrahima98/analyse-marche.git",
+
+      technologies: ["Python", "Pandas", "Matplotlib", "Yahoo Finance API", "seaborn", "data analysis" ],
+      
+      email: "papalybn@gmail.com"
+    },
     {
       titre: "Plateforme Web Auto-Map",
       description: "Plateforme web pour la gestion des auto-écoles et la recherche de l'auto-école la plus proche.",
