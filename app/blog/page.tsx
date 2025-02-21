@@ -3,39 +3,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-
-export const metadata = {
-  title: "Blog | LY Ibrahima",
-  description: "Articles sur le développement web, la data science et mes expériences",
-};
-
-const articles = [
-  {
-    title: "Sécurité et Gouvernance des Données ",
-    date: "2024-11-25",
-    description: "Plongez dans les aspects essentiels de la sécurité des données et de l'analyse prédictive. Découvrez les meilleures pratiques en matière de protection des données et comment l'analyse prédictive peut renforcer votre stratégie de sécurité.",
-    slug: "securite-gouvernance-donnees",
-    author: "LY Ibrahima",
-    image: "/images/gouvernance.webp"
-  },
-  {
-    title: "L'IA et l'Analyse Prédictive : Un Levier pour les Données au Sénégal",
-    date: "2025-1-02",
-    description: "Explorez comment l'intelligence artificielle transforme les données au Sénégal à travers des applications d'analyse prédictive et des solutions pour la prise de décision.",
-    slug: "ia-analyse-predictive",
-    author: "LY Ibrahima",
-    image: "/images/images.jpeg"
-  },
-
- { title: "Microservices et Bonnes Pratiques : Optimiser la Gestion des Données",
-  date: "2025-01-08",
-  readTime: "15 min",
-  description: "Découvrez comment l'architecture microservices peut révolutionner la gestion des données en apportant scalabilité, résilience, et flexibilité, et explorez les meilleures pratiques pour une implémentation réussie.",
-  slug: "microservices-gestion-donnees",
-  author: "LY Ibrahima",
-  image: "/images/microservice.jpg"
-}
-];
+import { articles } from "./_content/articles";
+import { ClickableAvatar } from "./components/clickable-avatar";
 
 export default function BlogPage() {
   return (
@@ -70,22 +39,24 @@ export default function BlogPage() {
                     variant="secondary" 
                     className="bg-primary/90 text-white text-xs font-medium px-2.5 py-0.5 shadow-sm"
                   >
-                    5 min de lecture
+                    {article.readTime}
                   </Badge>
                 </div>
               </div>
               
               <div className="px-6 py-4 space-y-4">
                 <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                  <span className="font-semibold text-foreground">{article.author}</span>
+                  <div className="flex items-center gap-2">
+                    <ClickableAvatar author={article.author} />
+                  </div>
                   <span className="text-muted-foreground/60">•</span>
                   <div className="flex items-center text-muted-foreground">
                     <Calendar className="h-4 w-4 mr-1.5 opacity-70" />
-                    {article.date ? new Date(article.date).toLocaleDateString('fr-FR', {
+                    {new Date(article.date).toLocaleDateString('fr-FR', {
                       year: 'numeric',
                       month: 'long',
                       day: 'numeric'
-                    }) : 'Date non disponible'}
+                    })}
                   </div>
                 </div>
                 
