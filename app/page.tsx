@@ -9,12 +9,12 @@ export default function Home() {
     {
       categorie: "Développement",
       icon: Code,
-      items: ["Java", "PHP", "JavaScript", "Python", "Flask", "React", "Node.js","React Native", "Nextjs" ]
+      items: ["Java", "PHP", "JavaScript", "TypeScript","Python", "Flask", "React","Angular", "Node.js","React Native", "Nextjs" ]
     },
     {
       categorie: "Ingénierie des Données",
       icon: Database,
-      items: ["ETL", "SQL", "NoSQL","Hadoop", "Spark","Power automate" ,"Saleforces","Power BI","Pipelines de Données","APIs", "AWS", "Docker", "Linux" ,"Git", "CI/CD"]
+      items: ["ETL", "SQL", "NoSQL","Hadoop", "Spark","Pipelines de Données","APIs", "AWS", "Docker", "Linux" ,"Git", "CI/CD"]
     },
     {
       categorie: "Science des Données & IA",
@@ -93,50 +93,23 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-center mb-12">Mon Parcours</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {/* Formation */}
-            <div>
-              <h3 className="text-2xl font-semibold mb-6 text-primary">Formation</h3>
-              <div className="space-y-8">
-                <div className="relative pl-8 border-l-2 border-primary/30">
-                  <div className="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-0" />
-                  <h4 className="font-semibold">Développement Data</h4>
-                  <p className="text-sm text-muted-foreground">Février 2024 - Septembre2024</p>
-                  <p className="mt-2">Orange Digital Center (Sonatel Academy)</p>
-                </div>
-
-                <div className="relative pl-8 border-l-2 border-primary/30">
-                  <div className="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-0" />
-                  <h4 className="font-semibold">Développement Full Stack Java</h4>
-                  <p className="text-sm text-muted-foreground">2022 - 2023</p>
-                  <p className="mt-2">Université numérique Cheikh Hamidou Kane (UNCK) (Programme Force-N)</p>
-                </div>
-                <div className="relative pl-8 border-l-2 border-primary/30">
-                  <div className="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-0" />
-                  <h4 className="font-semibold">Programmation | Développement </h4>
-                  <p className="text-sm text-muted-foreground">2019 - 2022</p>
-                  <p className="mt-2">Groupe Sup'info Dakar</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Expérience Professionnelle */}
-            <div>
+            {/* Expérience Professionnelle - Maintenant en premier */}
+            <div className="order-1 md:order-2">
               <h3 className="text-2xl font-semibold mb-6 text-primary">Expérience Professionnelle</h3>
               <div className="space-y-8">
-
-              <div className="relative pl-8 border-l-2 border-primary/30">
+                <div className="relative pl-8 border-l-2 border-primary/30">
                   <div className="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-0" />
                   <h4 className="font-semibold">Développeur Full Stack | Data Scientist </h4>
                   <p className="text-sm text-muted-foreground">2024/08 | Dakar, Sénégal</p>
                   <p className="mt-2">Co-fondateur Sahim Group</p>
                   <ul className="mt-2 list-disc list-inside text-muted-foreground">
-                    <li>Mise en place de l’architecture complète du projet Auto Map, incluant le frontend et le backend.
+                    <li>Mise en place de l'architecture complète du projet Auto Map, incluant le frontend et le backend.
                     </li>
-                    <li>Développement d’API RESTful avec Flask pour gérer les utilisateurs, les avis et les données des auto-écoles.
+                    <li>Développement d'API RESTful avec Flask pour gérer les utilisateurs, les avis et les données des auto-écoles.
                     </li>
                     <li>Implémentation frontend avec Next.js et TypeScript, garantissant une expérience utilisateur fluide et réactive.</li>
                     <li>Configuration de pipelines CI/CD avec GitHub Actions et Docker, pour automatiser les tests et le déploiement continu.</li>
-                    <li>Conception et intégration d’un système de recommandation basé sur le machine learning, optimisant la recherche et augmentant l’engagement utilisateur.</li>
+                    <li>Conception et intégration d'un système de recommandation basé sur le machine learning, optimisant la recherche et augmentant l'engagement utilisateur.</li>
                     <li>Participation à la planification stratégique pour la mise en production prévue en 2025.
                     </li>
                   
@@ -169,6 +142,32 @@ export default function Home() {
 
                     
                   </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Formation - Maintenant en second */}
+            <div className="order-2 md:order-1">
+              <h3 className="text-2xl font-semibold mb-6 text-primary">Formation</h3>
+              <div className="space-y-8">
+                <div className="relative pl-8 border-l-2 border-primary/30">
+                  <div className="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-0" />
+                  <h4 className="font-semibold">Développement Data</h4>
+                  <p className="text-sm text-muted-foreground">Février 2024 - Septembre2024</p>
+                  <p className="mt-2">Orange Digital Center (Sonatel Academy)</p>
+                </div>
+
+                <div className="relative pl-8 border-l-2 border-primary/30">
+                  <div className="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-0" />
+                  <h4 className="font-semibold">Développement Full Stack Java</h4>
+                  <p className="text-sm text-muted-foreground">2022 - 2023</p>
+                  <p className="mt-2">Université numérique Cheikh Hamidou Kane (UNCK) (Programme Force-N)</p>
+                </div>
+                <div className="relative pl-8 border-l-2 border-primary/30">
+                  <div className="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-0" />
+                  <h4 className="font-semibold">Programmation | Développement </h4>
+                  <p className="text-sm text-muted-foreground">2019 - 2022</p>
+                  <p className="mt-2">Groupe Sup'info Dakar</p>
                 </div>
               </div>
             </div>
