@@ -8,22 +8,26 @@ import { ClickableAvatar } from "./components/clickable-avatar";
 
 export default function BlogPage() {
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="container mx-auto px-4 py-8 sm:py-12">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-3xl font-bold mb-8 text-center text-foreground dark:text-white">
-          Articles & Insights
-        </h1>
+        <div className="flex flex-col items-center mb-10">
+          <h1 className="text-2xl sm:text-3xl font-bold text-foreground dark:text-white mb-2">
+            Articles & Insights
+          </h1>
+          <p className="text-muted-foreground text-sm sm:text-base max-w-2xl text-center">
+            Découvrez mes articles sur le développement web, la data science et l'intelligence artificielle
+          </p>
+        </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {articles.map((article) => (
             <article 
               key={article.slug}
-              className="group relative bg-white dark:bg-neutral-900 rounded-xl overflow-hidden 
-                         shadow-sm hover:shadow-lg transition-all duration-300 
-                         border border-neutral-200 dark:border-neutral-800
-                         w-full max-w-sm"
+              className="group relative bg-card hover:bg-card/80 rounded-lg overflow-hidden 
+                       border border-border/50 transition-all duration-300 
+                       hover:shadow-lg hover:scale-[1.02]"
             >
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-40 sm:h-48">
                 <Image 
                   src={article.image} 
                   alt={article.title}
@@ -32,54 +36,49 @@ export default function BlogPage() {
                   className="object-cover w-full h-full transform transition-transform duration-500 group-hover:scale-105"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-transparent" />
                 
-                <div className="absolute top-3 right-3 z-10">
+                <div className="absolute top-2 right-2">
                   <Badge 
                     variant="secondary" 
-                    className="bg-primary/90 text-white text-xs font-medium px-2.5 py-0.5 shadow-sm"
+                    className="bg-primary/90 text-white text-xs px-2 py-0.5"
                   >
                     {article.readTime}
                   </Badge>
                 </div>
               </div>
               
-              <div className="px-6 py-4 space-y-4">
-                <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                  <div className="flex items-center gap-2">
-                    <ClickableAvatar author={article.author} />
-                  </div>
-                  <span className="text-muted-foreground/60">•</span>
-                  <div className="flex items-center text-muted-foreground">
-                    <Calendar className="h-4 w-4 mr-1.5 opacity-70" />
+              <div className="p-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <ClickableAvatar author={article.author} />
+                  <div className="flex items-center text-xs text-muted-foreground">
+                    <Calendar className="h-3 w-3 mr-1 opacity-70" />
                     {new Date(article.date).toLocaleDateString('fr-FR', {
                       year: 'numeric',
-                      month: 'long',
+                      month: 'short',
                       day: 'numeric'
                     })}
                   </div>
                 </div>
                 
-                <h2 className="text-xl font-bold leading-tight group-hover:text-primary transition-colors duration-300">
+                <h2 className="text-base font-semibold leading-tight mb-2 group-hover:text-primary transition-colors">
                   {article.title}
                 </h2>
                 
-                <p className="text-sm text-muted-foreground line-clamp-3">
+                <p className="text-sm text-muted-foreground line-clamp-2 mb-4">
                   {article.description}
                 </p>
                 
-                <div className="pt-2">
-                  <Button
-                    asChild
-                    variant="ghost"
-                    className="w-full justify-between hover:bg-primary/5 hover:text-primary transition-colors"
-                  >
-                    <Link href={`/blog/${article.slug}`}>
-                      <span className="font-medium">Lire l'article</span>
-                      <ArrowRight className="h-4 w-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" />
-                    </Link>
-                  </Button>
-                </div>
+                <Button
+                  asChild
+                  variant="ghost"
+                  className="w-full justify-between text-sm hover:bg-primary/5 hover:text-primary"
+                >
+                  <Link href={`/blog/${article.slug}`}>
+                    <span>Lire l'article</span>
+                    <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
               </div>
             </article>
           ))}

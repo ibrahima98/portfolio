@@ -143,3 +143,16 @@
 .prose pre {
   @apply bg-slate-100 dark:bg-slate-800 p-4 rounded-lg my-4 overflow-x-auto;
 }
+
+@layer utilities {
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+  }
+
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
