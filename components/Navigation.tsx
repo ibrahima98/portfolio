@@ -91,6 +91,7 @@ const Navigation = () => {
               <Link
                 key={lien.href}
                 href={lien.href}
+                prefetch
                 onClick={(e) => handleClick(e, lien.href)}
                 className={cn(
                   'px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-2',
@@ -158,6 +159,7 @@ const Navigation = () => {
               <Link
                 key={lien.href}
                 href={lien.href}
+                prefetch
                 onClick={(e) => {
                   handleClick(e, lien.href);
                   setIsOpen(false);

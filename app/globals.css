@@ -156,3 +156,54 @@
     transform: translateY(0);
   }
 }
+
+/* Ajoutez à la fin du fichier */
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+}
+
+.swiper-slide-shadow-left,
+.swiper-slide-shadow-right {
+  background-image: none !important;
+}
+
+/* Styles pour le slider de compétences */
+.skills-slider {
+  width: 100%;
+  padding: 50px 0;
+}
+
+.skills-slider .swiper-slide {
+  width: 300px;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.skills-slider .swiper-slide-active {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.skills-slider .swiper-pagination {
+  position: relative;
+  margin-top: 30px;
+}
+
+.skills-slider .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: theme('colors.violet.500');
+  opacity: 0.3;
+}
+
+.skills-slider .swiper-pagination-bullet-active {
+  opacity: 1;
+  background: theme('colors.violet.500');
+}

@@ -1,25 +1,26 @@
 import { CertificationCard } from "@/components/certification-card";
+import { SkillsSlider } from "@/components/skills-slider";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, Award, Brain, Briefcase, Code, Database, Github, GraduationCap, Linkedin, Mail, MapPin } from "lucide-react";
+import { ArrowRight, Award, Briefcase, Code, Github, GraduationCap, Linkedin, Mail, MapPin } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
   const competences = [
     {
       categorie: "Développement",
-      icon: Code,
-      items: ["Java", "PHP", "JavaScript", "TypeScript","Python", "Flask", "React","Angular", "Node.js","React Native", "Nextjs" ]
+      icon: "Code",
+      items: ["Java", "PHP", "JavaScript", "TypeScript", "Python", "Flask", "React", "Angular", "Node.js", "React Native", "Nextjs"]
     },
     {
       categorie: "Ingénierie des Données",
-      icon: Database,
+      icon: "Database",
       items: ["ETL", "SQL", "NoSQL","Hadoop", "Spark","Pipelines de Données","APIs", "AWS", "Docker", "Linux" ,"Git", "CI/CD"]
     },
     {
       categorie: "Science des Données & IA",
-      icon: Brain,
+      icon: "Brain",
       items: ["Machine Learning", "Deep Learning", "AI Generative", "Scikit-learn", "TensorFlow", "PyTorch", "Analyse de Données"]
     }
   ];
@@ -67,8 +68,8 @@ export default function Home() {
                     size="lg" 
                     className="rounded-full px-8 group hover:shadow-lg hover:shadow-primary/20 transition-all duration-300"
                   >
-                    <Link href="/projets" className="flex items-center">
-                      Projets
+                    <Link href="#parcours" className="flex items-center">
+                      Parcours
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
                   </Button>
@@ -76,10 +77,13 @@ export default function Home() {
                   <Button 
                     asChild 
                     size="lg" 
-                    variant="outline"
                     className="rounded-full px-8 group hover:shadow-lg transition-all duration-300"
                   >
-                    <Link href="/blog" className="flex items-center">
+                    <Link 
+                      href="/blog" 
+                      prefetch
+                      className="flex items-center"
+                    >
                       Blog
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
@@ -135,22 +139,41 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Version mobile avec Swiper */}
+          <div className="block md:hidden">
+            <SkillsSlider competences={competences} />
+          </div>
+
+          {/* Version desktop avec la grille */}
+          <div className="hidden md:grid md:grid-cols-3 gap-8">
             {competences.map((competence) => (
-              <Card key={competence.categorie} className="bg-background/50 backdrop-blur-sm border-primary/10 hover:border-primary/20 transition-all duration-300">
+              <Card 
+                key={competence.categorie}
+                className="relative bg-background/50 backdrop-blur-sm 
+                  border-2 border-violet-500/10 dark:border-violet-500/20
+                  hover:border-violet-500/30 dark:hover:border-violet-500/40 
+                  transition-all duration-300 
+                  dark:bg-black/20 
+                  shadow-sm hover:shadow-lg
+                  hover:shadow-violet-500/5 dark:hover:shadow-violet-500/10"
+              >
                 <div className="p-6 sm:p-8">
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="p-3 rounded-xl bg-primary/10">
-                      <competence.icon className="h-6 w-6 text-primary" />
+                    <div className="p-3 rounded-xl bg-violet-500/10 dark:bg-violet-500/20 backdrop-blur-md">
+                      <Code className="h-6 w-6 text-violet-500 dark:text-violet-400" />
                     </div>
-                    <h3 className="text-xl font-semibold">{competence.categorie}</h3>
+                    <h3 className="text-xl font-semibold text-foreground/90">{competence.categorie}</h3>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {competence.items.map((item) => (
                       <Badge 
                         key={item} 
                         variant="secondary" 
-                        className="bg-primary/5 hover:bg-primary/10 text-foreground/80 hover:text-foreground transition-colors"
+                        className="bg-muted/50 hover:bg-muted/80 
+                          dark:bg-violet-500/5 dark:hover:bg-violet-500/10
+                          text-foreground/80 hover:text-foreground 
+                          transition-colors backdrop-blur-sm
+                          border border-violet-500/10 dark:border-violet-500/20"
                       >
                         {item}
                       </Badge>
@@ -164,7 +187,7 @@ export default function Home() {
       </section>
 
       {/* Section Parcours */}
-      <section className="py-24 relative overflow-hidden">
+      <section id="parcours" className="py-24 relative overflow-hidden scroll-mt-20">
         <div className="absolute inset-0 bg-grid-pattern opacity-[0.02] dark:opacity-[0.05]" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -186,8 +209,8 @@ export default function Home() {
               
               <div className="space-y-12">
                 {/* Chaque expérience */}
-                <div className="relative pl-8 border-l-2 border-primary/30">
-                  <div className="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-0" />
+                <div className="relative pl-8 border-l-2 border-violet-500/30">
+                  <div className="absolute w-4 h-4 bg-violet-500 rounded-full -left-[9px] top-0" />
                   <h4 className="font-semibold text-lg mb-2">Développeur Full Stack | Data Scientist</h4>
                   <p className="text-sm text-muted-foreground mb-4">2024/08 | Dakar, Sénégal • Co-fondateur Sahim Group</p>
                   <ul className="space-y-2 text-muted-foreground">
@@ -199,8 +222,8 @@ export default function Home() {
                     <li>Participation à la planification stratégique pour la mise en production prévue en 2025.</li>
                   </ul>
                 </div>
-                <div className="relative pl-8 border-l-2 border-primary/30">
-                  <div className="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-0" />
+                <div className="relative pl-8 border-l-2 border-violet-500/30">
+                  <div className="absolute w-4 h-4 bg-violet-500 rounded-full -left-[9px] top-0" />
                   <h4 className="font-semibold text-lg mb-2">Intégrateur de Données</h4>
                   <p className="text-sm text-muted-foreground mb-4">2024/03 – 2024/03 | Dakar, Sénégal • Coalition Diomaye Président 2024</p>
                   <ul className="space-y-2 text-muted-foreground">
@@ -209,8 +232,8 @@ export default function Home() {
                     <li>Collaboration étroite avec les membres de l'équipe pour garantir l'exactitude des données</li>
                   </ul>
                 </div>
-                <div className="relative pl-8 border-l-2 border-primary/30">
-                  <div className="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-0" />
+                <div className="relative pl-8 border-l-2 border-violet-500/30">
+                  <div className="absolute w-4 h-4 bg-violet-500 rounded-full -left-[9px] top-0" />
                   <h4 className="font-semibold text-lg mb-2">Développeur Full Stack</h4>
                   <p className="text-sm text-muted-foreground mb-4">2022/08 – 2023/02 | Dakar, Senegal • BLS Sénégal (MAKKITY)</p>
                   <ul className="space-y-2 text-muted-foreground">
@@ -234,8 +257,8 @@ export default function Home() {
               </div>
               
               <div className="space-y-12">
-                <div className="relative pl-8 border-l-2 border-primary/30">
-                  <div className="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-0" />
+                <div className="relative pl-8 border-l-2 border-violet-500/30">
+                  <div className="absolute w-4 h-4 bg-violet-500 rounded-full -left-[9px] top-0" />
                   <h4 className="font-semibold text-lg mb-2">Développement Data</h4>
                   <p className="text-sm text-muted-foreground mb-4">
                     Février 2024 - Septembre 2024 • Orange Digital Center (Sonatel Academy)
@@ -246,8 +269,8 @@ export default function Home() {
                   </ul>
                 </div>
 
-                <div className="relative pl-8 border-l-2 border-primary/30">
-                  <div className="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-0" />
+                <div className="relative pl-8 border-l-2 border-violet-500/30">
+                  <div className="absolute w-4 h-4 bg-violet-500 rounded-full -left-[9px] top-0" />
                   <h4 className="font-semibold text-lg mb-2">Développement Full Stack Java</h4>
                   <p className="text-sm text-muted-foreground mb-4">
                     2022 - 2023 • Université numérique Cheikh Hamidou Kane (Programme Force-N)
@@ -259,8 +282,8 @@ export default function Home() {
                   </ul>
                 </div>
 
-                <div className="relative pl-8 border-l-2 border-primary/30">
-                  <div className="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-0" />
+                <div className="relative pl-8 border-l-2 border-violet-500/30">
+                  <div className="absolute w-4 h-4 bg-violet-500 rounded-full -left-[9px] top-0" />
                   <h4 className="font-semibold text-lg mb-2">Programmation | Développement</h4>
                   <p className="text-sm text-muted-foreground mb-4">
                     2019 - 2022 • Groupe Sup'info Dakar
@@ -274,15 +297,15 @@ export default function Home() {
             </div>
 
             {/* Certifications */}
-            <div className="space-y-8 mt-12">
+            <div className="space-y-8 mt-12 lg:col-span-2">
               <div className="flex items-center gap-4 mb-8">
-                <div className="p-3 rounded-xl bg-primary/10">
-                  <Award className="h-6 w-6 text-primary" />
+                <div className="p-3 rounded-xl bg-violet-500/10 dark:bg-violet-500/5">
+                  <Award className="h-6 w-6 text-violet-500 dark:text-violet-400" />
                 </div>
                 <h3 className="text-2xl font-semibold">Certifications</h3>
               </div>
               
-              <div className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <CertificationCard
                   title="DevOps on AWS"
                   date="2024"
@@ -297,11 +320,11 @@ export default function Home() {
 
                 <CertificationCard
                   title="CodinGame Java Certification"
-                  date="2023"
+                  date="2024"
                   organization="CodinGame"
                   imagePath="/images/java.png"
                   skills={[
-                    "Certification en développement Java",
+                    
                     "Résolution de problèmes algorithmiques complexes",
                     "Maîtrise des concepts avancés de Java",
                     "Optimisation et performance du code"
