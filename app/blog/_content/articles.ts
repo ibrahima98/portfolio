@@ -21,7 +21,7 @@ export const articles: Article[] = [
     slug: "securite-gouvernance-donnees-senegal",
     title: "Sécurité et Gouvernance des Données au Sénégal",
     description: "À l'ère du numérique, la sécurité et la gouvernance des données sont devenues des enjeux majeurs pour le Sénégal. Entre protection des données personnelles et conformité réglementaire, le pays développe une approche stratégique pour garantir un écosystème numérique fiable et résilient.",
-    date: "2024-03-20",
+    date: "2024-11-20",
     image: "/images/gouvernance.webp",
     readTime: "15 min",
     author: {
@@ -178,7 +178,7 @@ export const articles: Article[] = [
     slug: "ia-analyse-predictive",
     title: "L'IA et l'Analyse Prédictive : Un Levier pour les Données au Sénégal",
     description: "Dans un contexte de transformation numérique accélérée, le Sénégal mise sur l'intelligence artificielle et l'analyse prédictive pour révolutionner sa gestion des données. Le New Deal Technologies 2034 place ces technologies au cœur de l'innovation et du développement économique du pays.",
-    date: "2024-03-22",
+    date: "2025-01-02",
     image: "/images/images.jpeg",
     readTime: "12 min",
     author: {
@@ -337,7 +337,7 @@ export const articles: Article[] = [
     slug: "microservices-gestion-donnees",
     title: "Microservices et Bonnes Pratiques : Optimiser la Gestion des Données",
     description: "Les architectures microservices transforment la façon dont nous concevons et gérons les applications modernes. Cette approche, adoptée par les géants du numérique, offre des avantages significatifs en termes de scalabilité, de résilience et de flexibilité technologique.",
-    date: "2024-03-15",
+    date: "2025-02-05",
     image: "/images/microservice.jpg",
     readTime: "10 min",
     author: {

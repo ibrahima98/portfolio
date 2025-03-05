@@ -1,10 +1,38 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar } from "lucide-react";
+import { Metadata } from "next";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { articles } from "./_content/articles";
 import { ClickableAvatar } from "./components/clickable-avatar";
+
+// Import dynamique des composants
+const BlogCard = dynamic(() => import("@/components/blog-card"), {
+  loading: () => <div className="h-[300px] bg-muted animate-pulse rounded-lg" />
+});
+
+export const metadata: Metadata = {
+  title: "Blog - LY Ibrahima",
+  description: "Articles sur le développement web et la data science",
+};
+
+async function getBlogPosts() {
+  // Simulez un délai de chargement pour tester
+  await new Promise(resolve => setTimeout(resolve, 1000));
+  
+  return [
+    {
+      title: "Introduction au Machine Learning",
+      description: "Une approche pratique du machine learning avec Python",
+      image: "/images/blog/ml-intro.jpg",
+      date: "2024-03-20",
+      readTime: "5 min",
+    },
+    // ... autres articles
+  ];
+}
 
 export default function BlogPage() {
   return (
@@ -34,7 +62,9 @@ export default function BlogPage() {
                   width={384}
                   height={192}
                   className="object-cover w-full h-full transform transition-transform duration-500 group-hover:scale-105"
-                  priority
+                  priority={article.slug === articles[0].slug}
+                  loading={article.slug === articles[0].slug ? "eager" : "lazy"}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 384px"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-transparent" />
                 
@@ -74,7 +104,10 @@ export default function BlogPage() {
                   variant="ghost"
                   className="w-full justify-between text-sm hover:bg-primary/5 hover:text-primary"
                 >
-                  <Link href={`/blog/${article.slug}`}>
+                  <Link 
+                    href={`/blog/${article.slug}`}
+                    prefetch={true}
+                  >
                     <span>Lire l'article</span>
                     <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
                   </Link>

@@ -3,7 +3,18 @@ import { SkillsSlider } from "@/components/skills-slider";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, Award, Briefcase, Code, Github, GraduationCap, Linkedin, Mail, MapPin } from "lucide-react";
+import {
+  ArrowRight,
+  Award,
+  Briefcase,
+  Code,
+  Github,
+  GraduationCap,
+  Linkedin,
+  Mail,
+  MapPin
+} from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -118,11 +129,15 @@ export default function Home() {
             <div className="relative w-64 h-64 lg:w-96 lg:h-96 animate-fade-in">
               <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/20 via-primary/10 to-transparent animate-pulse" />
               <div className="absolute -inset-0.5 bg-gradient-to-tr from-primary/20 to-transparent rounded-full blur-2xl opacity-50 animate-glow" />
-              <img
-                src="/images/ibrahimaly.jpeg" 
+              <Image
+                src="/images/ibrahimaly.jpeg"
                 alt="Photo de profil"
+                width={384}
+                height={384}
+                priority
                 className="relative rounded-full object-cover w-full h-full p-2 animate-float"
                 style={{ objectPosition: 'center 20%' }}
+                quality={85}
               />
             </div>
           </div>

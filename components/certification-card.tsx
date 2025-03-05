@@ -43,6 +43,9 @@ export function CertificationCard({ title, date, organization, imagePath, skills
                 className="object-contain p-2 transform transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 quality={90}
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL={`data:image/svg+xml;base64,...`}
               />
             </div>
 
@@ -79,6 +82,9 @@ export function CertificationCard({ title, date, organization, imagePath, skills
                 priority
                 quality={100}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL={`data:image/svg+xml;base64,...`}
               />
             </div>
           </div>
