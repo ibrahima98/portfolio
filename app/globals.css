@@ -2,130 +2,217 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Styles de base pour toutes les pages */
+/* Variables thème shadcn (requis pour bg-background, text-primary, etc.) */
 @layer base {
-  /* Style de base uniforme */
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 224 71.4% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+    --primary: 262.1 83.3% 57.8%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220 8.9% 46.1%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220 8.9% 46.1%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 262.1 83.3% 57.8%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 263.4 70% 50.4%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 263.4 70% 50.4%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
   body {
-    @apply text-base font-normal text-slate-800 dark:text-slate-200 antialiased;
+    @apply text-base font-normal antialiased;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
   }
 
-  /* Tous les titres en même couleur */
-  h1, h2, h3, h4 {
-    @apply text-slate-900 dark:text-slate-50;
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply tracking-tight;
+    color: hsl(var(--foreground));
   }
 
-  /* Tous les textes normaux en même couleur */
-  p, li, small {
-    @apply text-slate-800 dark:text-slate-200;
+  p {
+    color: hsl(var(--foreground));
   }
 
-  /* Texte important en même couleur que les titres */
-  strong, b, em, i {
-    @apply text-slate-900 dark:text-slate-50;
+  strong,
+  b {
+    @apply font-semibold;
+    color: hsl(var(--foreground));
   }
 
-  /* Liens en violet cohérent */
+  em,
+  i {
+    @apply italic;
+    color: hsl(var(--foreground));
+  }
+
   a {
-    @apply text-violet-600 hover:text-violet-500 dark:text-violet-400 dark:hover:text-violet-300;
+    @apply transition-colors;
+    color: hsl(var(--primary));
   }
 
-  /* Listes */
+  a:hover {
+    color: hsl(var(--primary) / 0.9);
+  }
+
   ul {
-    @apply list-disc list-inside mb-6 space-y-2;
+    @apply list-disc list-inside space-y-2;
   }
 
   ol {
-    @apply list-decimal list-inside mb-6 space-y-2;
+    @apply list-decimal list-inside space-y-2;
   }
 
   li {
-    @apply text-base md:text-lg leading-relaxed text-slate-800 dark:text-slate-200;
+    @apply leading-relaxed;
+    color: hsl(var(--foreground));
   }
 
-  /* Texte en surbrillance */
   ::selection {
-    @apply bg-violet-200 dark:bg-violet-800;
+    background-color: hsl(var(--primary) / 0.2);
   }
 
-  /* Styles pour le texte plus petit */
+  .dark ::selection {
+    background-color: hsl(var(--primary) / 0.3);
+  }
+
   small {
-    @apply text-sm text-slate-600 dark:text-slate-400;
-  }
-
-  /* Style pour le texte important */
-  strong, b {
-    @apply font-semibold text-slate-900 dark:text-slate-50;
-  }
-
-  /* Style pour le texte en italique */
-  em, i {
-    @apply italic text-slate-900 dark:text-slate-50;
+    @apply text-sm;
+    color: hsl(var(--muted-foreground));
   }
 }
 
-/* Classes utilitaires pour la typographie */
 @layer components {
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-violet-600 to-purple-600;
   }
 
   .heading-xl {
-    @apply text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-50 tracking-tight;
+    @apply text-4xl md:text-5xl font-bold tracking-tight;
+    color: hsl(var(--foreground));
   }
 
   .heading-lg {
-    @apply text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-50 tracking-tight;
+    @apply text-3xl md:text-4xl font-bold tracking-tight;
+    color: hsl(var(--foreground));
   }
 
   .heading-md {
-    @apply text-2xl md:text-3xl font-semibold text-slate-900 dark:text-slate-50;
+    @apply text-2xl md:text-3xl font-semibold;
+    color: hsl(var(--foreground));
   }
 
   .body-lg {
-    @apply text-lg md:text-xl text-slate-800 dark:text-slate-200 leading-relaxed;
+    @apply text-lg md:text-xl leading-relaxed;
+    color: hsl(var(--foreground));
   }
 
   .body-base {
-    @apply text-base md:text-lg text-slate-800 dark:text-slate-200 leading-relaxed;
+    @apply text-base md:text-lg leading-relaxed;
+    color: hsl(var(--foreground));
   }
 
   .body-sm {
-    @apply text-sm text-slate-600 dark:text-slate-400 leading-relaxed;
+    @apply text-sm leading-relaxed;
+    color: hsl(var(--muted-foreground));
   }
 }
 
-/* Style spécifique pour les articles */
 .prose {
-  @apply text-slate-800 dark:text-slate-200;
+  color: hsl(var(--foreground));
 }
 
-.prose h1, .prose h2, .prose h3, .prose h4 {
-  @apply text-slate-900 dark:text-slate-50;
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  color: hsl(var(--foreground));
 }
 
 .prose p {
   @apply mb-6 leading-relaxed;
+  color: hsl(var(--muted-foreground));
 }
 
 .prose a {
-  @apply text-violet-600 hover:text-violet-500 transition-colors dark:text-violet-400 dark:hover:text-violet-300;
+  @apply transition-colors;
+  color: hsl(var(--primary));
+}
+
+.prose a:hover {
+  color: hsl(var(--primary) / 0.9);
 }
 
 .prose img {
   @apply rounded-xl my-8;
-} 
-
-.prose blockquote {
-  @apply border-l-4 border-violet-200 dark:border-violet-800 pl-4 italic;
 }
 
-/* Styles Markdown */
+.prose blockquote {
+  @apply border-l-4 pl-4 italic rounded-r-lg;
+  border-color: hsl(var(--primary) / 0.4);
+  background-color: hsl(var(--muted) / 0.5);
+}
+
 .prose h1 {
   @apply text-3xl font-bold mb-6;
+  color: hsl(var(--foreground));
+}
+
+.prose h2 {
+  @apply text-3xl font-bold mb-6;
+  color: hsl(var(--foreground));
 }
 
 .prose h3 {
   @apply text-xl font-semibold mt-6 mb-3;
+  color: hsl(var(--foreground));
 }
 
 .prose ul {
@@ -134,14 +221,17 @@
 
 .prose li {
   @apply text-base leading-relaxed;
+  color: hsl(var(--muted-foreground));
 }
 
 .prose code {
-  @apply bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded;
+  @apply px-1 py-0.5 rounded text-sm;
+  background-color: hsl(var(--muted));
 }
 
 .prose pre {
-  @apply bg-slate-100 dark:bg-slate-800 p-4 rounded-lg my-4 overflow-x-auto;
+  @apply p-4 rounded-lg my-4 overflow-x-auto;
+  background-color: hsl(var(--muted));
 }
 
 @layer utilities {
@@ -157,7 +247,6 @@
   }
 }
 
-/* Ajoutez à la fin du fichier */
 .swiper {
   width: 100%;
   padding-top: 50px;
@@ -174,7 +263,6 @@
   background-image: none !important;
 }
 
-/* Styles pour le slider de compétences */
 .skills-slider {
   width: 100%;
   padding: 50px 0;

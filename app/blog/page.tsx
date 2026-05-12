@@ -36,18 +36,18 @@ async function getBlogPosts() {
 
 export default function BlogPage() {
   return (
-    <div className="container mx-auto px-4 py-8 sm:py-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col items-center mb-10">
-          <h1 className="text-2xl sm:text-3xl font-bold text-foreground dark:text-white mb-2">
-            Articles & Insights
+        <div className="text-center mb-16">
+          <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 tracking-tight">
+            Articles &amp; Insights
           </h1>
-          <p className="text-muted-foreground text-sm sm:text-base max-w-2xl text-center">
-            Découvrez mes articles sur le développement web, la data science et l'intelligence artificielle
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Découvrez mes articles sur le développement web, la data science et l&apos;intelligence artificielle
           </p>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {articles.map((article) => (
             <article 
               key={article.slug}
@@ -91,7 +91,7 @@ export default function BlogPage() {
                   </div>
                 </div>
                 
-                <h2 className="text-base font-semibold leading-tight mb-2 group-hover:text-primary transition-colors">
+                <h2 className="text-lg font-semibold leading-tight mb-2 text-foreground group-hover:text-primary transition-colors">
                   {article.title}
                 </h2>
                 

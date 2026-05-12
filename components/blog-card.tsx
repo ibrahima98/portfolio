@@ -35,7 +35,7 @@ export default function BlogCard({
           />
         </div>
         <div>
-          <h2 className="text-xl font-semibold group-hover:text-primary transition-colors">
+          <h2 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
             {title}
           </h2>
           <p className="text-muted-foreground mt-2">{description}</p>

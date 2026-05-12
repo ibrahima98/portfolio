@@ -15,7 +15,7 @@ interface ArticleHeaderProps {
 
 export function ArticleHeader({ author, date, readTime }: ArticleHeaderProps) {
   return (
-    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 mb-8 text-sm text-slate-600 dark:text-slate-400">
+    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 mb-8 text-sm text-muted-foreground">
       <div className="flex items-center gap-2 mb-2 sm:mb-0">
         <Dialog>
           <DialogTrigger asChild>

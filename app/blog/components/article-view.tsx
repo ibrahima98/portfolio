@@ -23,14 +23,14 @@ export function ArticleView({ article }: ArticleViewProps) {
     <>
       {/* Titre en haut sur mobile */}
       <div className="block sm:hidden -mt-6 mb-6 px-4">
-        <h1 className="text-2xl font-bold text-foreground dark:text-white">
+        <h1 className="text-3xl font-bold text-foreground leading-tight tracking-tight">
           {article.title}
         </h1>
       </div>
 
       <article className="max-w-3xl mx-auto px-4 sm:px-6">
         {/* Titre masqué sur mobile, visible sur desktop */}
-        <h1 className="hidden sm:block text-3xl md:text-4xl font-bold text-foreground dark:text-white mb-8 sm:mb-10 leading-tight">
+        <h1 className="hidden sm:block text-3xl md:text-4xl font-bold text-foreground mb-8 sm:mb-10 leading-tight tracking-tight">
           {article.title}
         </h1>
 
@@ -89,7 +89,7 @@ export function ArticleView({ article }: ArticleViewProps) {
 
         <div
           className="prose prose-lg max-w-none dark:prose-invert
-            prose-headings:text-primary 
+            prose-headings:text-foreground
             prose-h2:text-3xl prose-h2:font-bold prose-h2:mb-6
             prose-h3:text-2xl prose-h3:font-semibold prose-h3:mb-4
             prose-p:text-muted-foreground prose-p:leading-relaxed

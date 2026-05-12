@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { AnimatePresence, motion } from "framer-motion";
-import { ExternalLink, Mail } from "lucide-react";
+import { Github, Mail } from "lucide-react";
 import Image from 'next/image';
 
 import { useCallback, useState } from "react";
@@ -14,6 +14,7 @@ interface Projet {
   longDescription: string;
   date: string;
   image: string;
+  imageAlt?: string;
   githubLink?: string;
   technologies: string[];
   email: string;
@@ -43,187 +44,50 @@ export default function Projets() {
 
   const projets: Projet[] = [
     {
-      titre: "Outil d'analyse et de visualisation de données",
-      description: "Application d'analyse financière sophistiquée utilisant l'API Yahoo Finance pour le trading et l'investissement.",
+      titre: "Attaqwa Paiement",
+      description:
+        "Module de paiement générique réutilisable, pensé pour être branché sur plusieurs produits, en particulier l’écosystème At Taqwa.",
       longDescription: `
-        Développement d'une solution complète d'analyse de données boursières offrant :
-        - Analyse technique avancée avec indicateurs personnalisables (RSI, MACD, Moyennes mobiles)
-        - Visualisation interactive des données avec des graphiques dynamiques
-        - Système d'alertes en temps réel sur les variations de prix
-        - Export des analyses au format PDF et Excel
-        - Backtesting des stratégies d'investissement
-        
-        Technologies clés : Python pour le backend, Pandas pour la manipulation des données, 
-        Matplotlib et Seaborn pour la visualisation, et l'API Yahoo Finance pour les données en temps réel.
-      `,
-      date: "2025-01-11",
-      image: "/images/197625880-graphiques-diagramme-diagramme-d-analyse-de-données-financières-d-entreprise.jpg",
-      githubLink: "https://github.com/ibrahima98/analyse-marche.git",
-      technologies: ["Python", "Pandas", "Matplotlib", "Yahoo Finance API", "seaborn", "data analysis", "NumPy", "Scikit-learn"],
-      email: "papalybn@gmail.com"
-    },
-    {
-      titre: "Plateforme Web Auto-Map",
-      description: "Solution innovante de cartographie des auto-écoles au Sénégal avec fonctionnalités de réservation et gestion.",
-      longDescription: `
-        Auto-Map est une plateforme complète qui révolutionne l'accès aux auto-écoles au Sénégal :
-        
-        Fonctionnalités principales :
-        - Géolocalisation en temps réel des auto-écoles
-        - Système de réservation de cours en ligne
-        - Tableau de bord pour les gérants d'auto-écoles
-        - Interface de suivi pour les élèves
-        - Système de notation et avis
-        - Paiement en ligne sécurisé
-        
-        Architecture technique :
-        - Frontend responsive avec Next.js et Tailwind CSS
-        - API REST avec Flask et PostgreSQL
-        - Infrastructure cloud sur AWS
-        - CI/CD avec GitHub Actions
-        - Monitoring avec Grafana
-      `,
-      date: "2024-12-17",
-      image: "/images/Logo_autoecole-02.png",
-      technologies: [
-        "Next.js", "React", "Tailwind CSS", "TypeScript", 
-        "Framer Motion", "Flask", "Python", "PostgreSQL", 
-        "Docker", "Kubernetes", "CI/CD", "AWS", "Cloud Computing"
-      ],
-      email: "papalybn@gmail.com"
-    },
-    {
-      titre: "Portfolio Personnel",
-      description: "Portfolio développé avec Next.js et Tailwind CSS, présentant mes compétences et réalisations.",
-      longDescription: "Une vitrine interactive de mes compétences et réalisations, construite avec les dernières technologies web.",
-      date: "2022-11-27",
-      image: "/images/porfolio.png",
-      githubLink: "https://github.com/ibrahima98/portfolio.git",
-      technologies: ["Next.js", "React", "Tailwind CSS", "TypeScript", "Framer Motion"],
-     
-      email: "papalybn@gmail.com"
-    },
-    {
-      titre: "E-commerce Laravel",
-      description: "Plateforme e-commerce complète avec paiement Stripe et gestion des commandes.",
-      longDescription: "Solution e-commerce développée avec Laravel, intégrant Stripe pour les paiements, gestion des produits et du panier en temps réel.",
-      date: "2021-12-27",
-      image: "/images/fruits.png",
-      githubLink: "https://github.com/ibrahima98/Ferme.git",
-      technologies: ["Laravel", "PHP", "MySQL", "Stripe", "Livewire", "TailwindCSS"],
-     
-      email: "papalybn@gmail.com"
-    },
-    {
-      titre: "Détection de Maladies par CNN",
-      description: "Solution d'IA pour la détection précoce des maladies des cultures d'haricot utilisant le Deep Learning.",
-      longDescription: `
-        Projet innovant combinant l'agriculture et l'intelligence artificielle :
-        
-        Caractéristiques principales :
-        - Modèle CNN personnalisé avec une précision de 95%
-        - Base de données de plus de 10 000 images annotées
-        - Interface utilisateur intuitive pour les agriculteurs
-        - Mode hors ligne pour une utilisation sur le terrain
-        - API REST pour l'intégration avec d'autres systèmes
-        
-        Impact :
-        - Réduction de 60% du temps de diagnostic
-        - Économie significative sur l'utilisation des pesticides
-        - Amélioration du rendement des cultures
-        
-        Stack technique :
-        - TensorFlow et Keras pour le modèle CNN
-        - OpenCV pour le prétraitement des images
-        - Flask pour l'API
-        - React Native pour l'application mobile
-      `,
-      date: "2024-10-28",
-      image: "https://images.unsplash.com/photo-1567375698348-5d9d5ae99de0?q=80&w=2940&auto=format&fit=crop",
-      technologies: [
-        "Python", "TensorFlow", "Scikit-learn", "CNN", 
-        "OpenCV", "Mobile App", "Deep Learning", "Flask"
-      ],
-      email: "papalybn@gmail.com"
-    },
-    {
-      titre: "Numérisation État Civil",
-      description: "Application Java pour la numérisation et la gestion des documents d'état civil.",
-      longDescription: "Solution complète de numérisation des documents d'état civil.",
-      date: "2021-07-10",
-      image: "https://images.unsplash.com/photo-1568667256549-094345857637?q=80&w=2940&auto=format&fit=crop",
-      technologies: ["Java", "Swing", "JDBC", "MySQL"],
-     
-      email: "papalybn@gmail.com"
-    },
-    {
-      titre: "API REST Prompts",
-      description: "API REST Flask pour la gestion de prompts avec système de votes et notations.",
-      longDescription: "API robuste avec authentification JWT, gestion des rôles, système de votes et états complexes des prompts.",
-      date: "2024-07-15",
-      image: "/images/api.png",
-      githubLink: "https://github.com/ibrahima98/api-gestion-prompt.git",
-      technologies: ["Python", "Flask", "PostgreSQL", "JWT", "REST API", "UML"],
-      
-      email: "papalybn@gmail.com"
-    },
-    {
-      titre: "Moteur de Recherche ELK",
-      description: "Moteur de recherche spécialisé utilisant la stack ELK pour l'analyse des tendances de prix.",
-      longDescription: "Solution de web scraping et d'analyse de données avec visualisation des tendances via Elasticsearch et Kibana.",
-      date: "2024-09-01",
-      image: "/images/elk.png",
-      technologies: ["Python", "Elasticsearch", "Kibana", "Web Scraping", "Data Analysis"],
-     
-      email: "papalybn@gmail.com"
-    },
-    {
-      titre: "Data Warehouse Commercial",
-      description: "Conception et implémentation d'un entrepôt de données pour l'analyse des ventes multi-magasins.",
-      longDescription: "Architecture complète d'un Data Warehouse avec modélisation des données et génération de jeux de test.",
-      date: "2024-08-19",
-      image: "/images/datawharehouse.png",
-      technologies: ["SQL", "PostgreSQL", "Data Modeling", "ETL", "Data Warehouse"],
-     
-      email: "papalybn@gmail.com"
-    },
-    {
-      titre: "Gestion de Bibliothèque",
-      description: "Application Java orientée objet pour gérer une bibliothèque, intégrant des fonctionnalités de prêt, de retour et de gestion des ressources.",
-      longDescription: "Un système de gestion de bibliothèque conçu avec des concepts avancés de programmation orientée objet. Le projet inclut des interfaces, des classes abstraites, et des relations entre objets pour une architecture modulaire et extensible.",
-      date: "2022-04-21",
-      image: "/images/bib.png",
-      githubLink: "https://github.com/ibrahima98/Bibliotheque.git",
-      technologies: [
-        "Java",
-        "POO",
-        "Interfaces",
-        "Collections Framework",
-        "JUnit"
-      ],
-  
-      "email": "papalybn@gmail.com"
-    },
-    {
-      titre: "Système de Gestion de Stock",
-      description:  "Plateforme open source pour la gestion des stocks, améliorée avec des fonctionnalités personnalisées.",
-      longDescription:"Un système de gestion de stock développé en PHP, permettant de suivre les inventaires",
-      date: "2022-03-19",
+        Dépôt : https://github.com/ibrahima98/attaqwa-paiement.git
 
-      image: "/images/gestion-inventaire.jpg",
-      githubLink: "https://github.com/ibrahima98/InventorySystem.git",
-      technologies: [
-         "PHP",
-        "MySQL",
-        "Bootstrap",
-        "JavaScript",
-        "jQuery"
-      ],
-  
-      "email": "papalybn@gmail.com"
-    },
+        Objectif : offrir un socle de paiement cohérent (flux, callbacks, sécurité, configuration) pour éviter de dupliquer la logique sur chaque application.
 
-    
+        Cas d’usage : intégration dans des apps web ou mobiles, dont la suite At Taqwa, avec une API claire et des conventions stables pour les autres projets.
+      `,
+      date: "2024-12-01",
+      image: "/images/attaqwa-paiement-en-ligne.jpg",
+      imageAlt:
+        "Paiement en ligne — carte bancaire et smartphone (photo Unsplash, licence Unsplash).",
+      githubLink: "https://github.com/ibrahima98/attaqwa-paiement.git",
+      technologies: [
+        "TypeScript",
+        "Next.js",
+        "React",
+        "REST API",
+        "JWT",
+        "PostgreSQL",
+        "Backend",
+        "Web",
+      ],
+      email: "papalybn@gmail.com",
+    },
+    {
+      titre: "At Taqwa — Application",
+      description:
+        "Application mobile At Taqwa (iOS et Android) : code source sur GitHub, déployée sur les stores.",
+      longDescription: `
+        Dépôt application : https://github.com/papalybn1-svg/at-taqwa-app.git
+
+        Application mobile At Taqwa pour iOS et Android, associée à l’écosystème (dont le module de paiement).
+      `,
+      date: "2026-01-01",
+      image: "/images/attaqwa-play-store-feature.png",
+      imageAlt:
+        "At-Taqwa — visuel officiel Google Play (feature graphic du listing).",
+      githubLink: "https://github.com/papalybn1-svg/at-taqwa-app.git",
+      technologies: ["Mobile App", "Android", "iOS", "TypeScript"],
+      email: "papalybn@gmail.com",
+    },
   ];
 
   const handleContactClick = useCallback((projet: Projet) => {
@@ -241,10 +105,10 @@ export default function Projets() {
       });
 
   return (
-    <div className="min-h-screen py-20">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Filtres */}
-        <div className="flex flex-wrap gap-2 mb-8">
+        <div className="flex flex-wrap gap-2 mb-10">
           {Object.entries(categories).map(([key, value]) => (
             <Button
               key={key}
@@ -260,69 +124,80 @@ export default function Projets() {
         </div>
 
         {/* Section Projets */}
-        <section className="mb-20">
-          <h2 className="text-2xl font-bold mb-6">Mes Projets</h2>
-          <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <section className="mb-16">
+          <div className="text-center sm:text-left mb-10">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-foreground tracking-tight">
+              Mes Projets
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto sm:mx-0">
+              Écosystème At Taqwa : module de paiement réutilisable et application mobile (iOS & Android).
+            </p>
+          </div>
+          <motion.div
+            layout
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch"
+          >
             <AnimatePresence mode="popLayout">
               {filteredProjets.map((projet) => (
                 <motion.div
                   key={projet.titre}
                   layout
-                  initial={{ opacity: 0, scale: 0.8 }}
+                  initial={{ opacity: 0, scale: 0.98 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  whileHover={{ scale: 1.02 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  whileHover={{ y: -2 }}
                   transition={{ type: "spring", stiffness: 300 }}
-                  className="max-w-sm mx-auto w-full"
+                  className="w-full h-full min-h-0 flex"
                 >
-                  <Card className="max-w-sm mx-auto overflow-hidden bg-white dark:bg-neutral-900 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
-                    {/* Image */}
-                    <div className="relative overflow-hidden group">
+                  <Card className="flex h-full min-h-[22rem] w-full flex-col overflow-hidden border border-border/60 bg-card text-card-foreground rounded-xl shadow-sm hover:shadow-md hover:border-border transition-all duration-300">
+                    <div className="relative h-44 shrink-0 overflow-hidden group">
                       <Image
                         src={projet.image}
-                        alt={projet.titre}
-                        width={400}
-                        height={160}
-                        className="w-full h-40 object-cover transform transition-transform duration-300 group-hover:scale-105"
+                        alt={projet.imageAlt ?? projet.titre}
+                        width={800}
+                        height={352}
+                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
 
-                          {/* Contenu */}
-                        <div className="p-4 space-y-3">
-                          {/* Titre, description, et date */}
-                          <div className="space-y-1">
-                            <h3 className="font-medium text-lg leading-tight">{projet.titre}</h3>
-                            <p className="text-xs text-muted-foreground">{projet.description}</p>
-                            <p className="text-xs text-muted-foreground">
-                              Ajouté le : {new Date(projet.date).toLocaleDateString("fr-FR")}
-                            </p>
-                          </div>
+                    <div className="flex flex-1 flex-col p-4 pt-4">
+                      <div className="min-h-0 flex-1 space-y-1">
+                        <h3 className="font-semibold text-lg leading-tight text-foreground">
+                          {projet.titre}
+                        </h3>
+                        <p className="text-sm text-muted-foreground line-clamp-3 leading-snug">
+                          {projet.description}
+                        </p>
+                        <p className="text-xs text-muted-foreground pt-1">
+                          Ajouté le : {new Date(projet.date).toLocaleDateString("fr-FR")}
+                        </p>
+                      </div>
 
-                          {/* Boutons */}
-                          {projet.githubLink ? (
-                            <a
-                              href={projet.githubLink}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              referrerPolicy="no-referrer"
-                              className="block w-full px-3 py-2 text-center text-xs font-normal border border-gray-300 rounded-lg text-gray-700 hover:text-primary hover:border-primary transition"
-                            >
-                              <ExternalLink className="h-3 w-3 mr-1.5 inline-block" />
-                              Voir sur GitHub
-                            </a>
-                          ) : (
-                            <Button
-                              variant="outline"
-                              size="sm"
-                              className="w-full mt-2 text-xs font-normal"
-                              onClick={() => handleContactClick(projet)}
-                            >
-                              <Mail className="h-3 w-3 mr-1.5" />
-                              Me contacter
-                            </Button>
-                          )}
-                        </div>
-
+                      <div className="mt-auto flex flex-col gap-2 pt-4">
+                        {projet.githubLink ? (
+                          <a
+                            href={projet.githubLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            referrerPolicy="no-referrer"
+                            className="inline-flex w-full items-center justify-center gap-1.5 rounded-lg border border-border bg-background px-3 py-2.5 text-center text-sm font-medium text-foreground transition hover:border-primary hover:bg-accent hover:text-accent-foreground"
+                          >
+                            <Github className="h-3.5 w-3.5 shrink-0" />
+                            Code source (GitHub)
+                          </a>
+                        ) : (
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="w-full text-sm font-medium"
+                            onClick={() => handleContactClick(projet)}
+                          >
+                            <Mail className="h-3 w-3 mr-1.5" />
+                            Me contacter
+                          </Button>
+                        )}
+                      </div>
+                    </div>
                   </Card>
                 </motion.div>
               ))}

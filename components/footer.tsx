@@ -4,11 +4,11 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[0.5px] dark:border-neutral-800/30">
+    <footer className="border-t border-border">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         {/* Logo ou Nom */}
         <div className="text-center mb-10">
-          <h3 className="text-2xl font-bold text-primary">LY Ibrahima</h3>
+          <h3 className="text-2xl font-bold text-foreground">LY Ibrahima</h3>
           <p className="text-muted-foreground mt-2">Développeur Full Stack & Data Scientist</p>
         </div>
 
@@ -24,7 +24,7 @@ export default function Footer() {
               <Linkedin className="h-5 w-5" />
             </Button>
           </Link>
-          <Link href="mailto:papalybn@gmail.com.com" className="transform hover:scale-110 transition-transform">
+          <Link href="mailto:papalybn@gmail.com" className="transform hover:scale-110 transition-transform">
             <Button variant="outline" size="icon" className="rounded-full">
               <Mail className="h-5 w-5" />
             </Button>
