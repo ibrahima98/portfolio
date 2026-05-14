@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Attestation d’emploi</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 12mm 14mm;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Calibri, "Segoe UI", Arial, sans-serif;
+        font-size: 11pt;
+        line-height: 1.5;
+        color: #1a1a1a;
+        max-width: 190mm;
+        margin: 0 auto;
+        padding: 12mm 10mm 18mm;
+      }
+      .header {
+        text-align: center;
+        color: #0d3d6e;
+        margin-bottom: 1.25rem;
+      }
+      .company-name {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.2rem;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        margin-bottom: 0.25rem;
+      }
+      .company-tagline {
+        font-size: 10pt;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: #1a4d7a;
+      }
+      .company-meta {
+        font-size: 10pt;
+        font-weight: 600;
+        line-height: 1.55;
+      }
+      h1 {
+        text-align: center;
+        font-size: 1.15rem;
+        font-weight: 700;
+        margin: 0.85rem 0 0.65rem;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        color: #111;
+      }
+      p {
+        margin: 0 0 0.55rem;
+        text-align: justify;
+      }
+      ul {
+        margin: 0.25rem 0 0.5rem 0;
+        padding-left: 1.2rem;
+      }
+      li {
+        margin-bottom: 0.22rem;
+      }
+      .closing {
+        margin-top: 0.45rem;
+      }
+      .footer {
+        margin-top: 1rem;
+        text-align: right;
+        font-size: 10pt;
+      }
+      @media print {
+        @page {
+          margin: 10mm 12mm;
+        }
+        body {
+          padding: 0;
+          max-width: none;
+          font-size: 9.5pt;
+          line-height: 1.28;
+        }
+        #print-root .header {
+          margin-bottom: 0.65rem;
+        }
+        #print-root .company-name {
+          font-size: 1.05rem;
+        }
+        #print-root .company-tagline,
+        #print-root .company-meta {
+          font-size: 9pt;
+          line-height: 1.35;
+        }
+        #print-root h1 {
+          font-size: 1.05rem;
+          margin: 0.55rem 0 0.45rem;
+        }
+        #print-root p {
+          margin: 0 0 0.45rem;
+        }
+        #print-root ul {
+          margin: 0.2rem 0 0.35rem 0;
+          padding-left: 1.1rem;
+        }
+        #print-root li {
+          margin-bottom: 0.18rem;
+        }
+        #print-root .closing {
+          margin-top: 0.35rem;
+        }
+        #print-root .footer {
+          margin-top: 0.65rem;
+          font-size: 9.5pt;
+        }
+        #print-root .sig-block {
+          margin-top: 0.85rem;
+        }
+        #print-root .sig-block .name {
+          margin: 0 0 0.85rem;
+        }
+        #print-root .sig-label {
+          margin-bottom: 1.25rem !important;
+        }
+        .no-print {
+          display: none !important;
+        }
+      }
+      .toolbar {
+        text-align: center;
+        margin-bottom: 1rem;
+        font-size: 10pt;
+        color: #555;
+      }
+      .toolbar button {
+        padding: 0.45rem 1rem;
+        cursor: pointer;
+        font-size: 10pt;
+      }
+      .print-hint {
+        max-width: 42rem;
+        margin: 0 auto 1rem;
+        padding: 0.65rem 0.85rem;
+        font-size: 9.5pt;
+        line-height: 1.45;
+        color: #333;
+        background: #f0f4f8;
+        border: 1px solid #c5d0e0;
+        border-radius: 6px;
+        text-align: left;
+      }
+      .sig-block {
+        margin-top: 1.1rem;
+        text-align: right;
+        max-width: 22rem;
+        margin-left: auto;
+      }
+      .sig-block .role {
+        margin: 0 0 0.1rem;
+        font-size: 10pt;
+      }
+      .sig-block .name {
+        margin: 0 0 1rem;
+        font-weight: 700;
+        font-size: 10.5pt;
+      }
+      .sig-block .sig-label {
+        margin: 0;
+        font-size: 9.5pt;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toolbar no-print">
+      <button type="button" onclick="openPrintWindow()">
+        Ouvrir pour impression / PDF (recommandé)
+      </button>
+      <button type="button" onclick="window.print()">Imprimer cette page</button>
+    </div>
+    <div class="print-hint no-print">
+      <p style="margin: 0 0 0.5rem">
+        <strong>Sans date, heure ni chemin du fichier sur le papier</strong> : dans la fenêtre d’impression →
+        <strong>Plus de paramètres</strong> → <strong>décocher « En-têtes et pieds de page »</strong>.
+      </p>
+    </div>
+
+    <div id="print-root">
+      <header class="header">
+        <div class="company-name">Keur Mame Abdou Aziz</div>
+        <div class="company-tagline">Quincaillerie générale</div>
+        <div class="company-meta">
+          En face rond-point HLM — Rufisque, Dakar — Sénégal<br />
+          Gérant : Monsieur Mohamet Diop<br />
+          Tél : 78 153 13 47 — 71 125 27 31
+        </div>
+      </header>
+
+      <h1>Attestation d’emploi</h1>
+
+      <p>
+        Je soussigné, <strong>Monsieur Mohamet Diop</strong>, gérant de l’établissement <strong>Keur Mame Abdou
+        Aziz</strong> (quincaillerie générale), certifie que <strong>Monsieur Ibrahima LY</strong> a exercé au sein
+        de notre entreprise les fonctions de <strong>gestionnaire de plateforme de stock et d’outils
+        informatiques</strong>, du
+        <strong>1<sup>er</sup> mars 2023</strong> au <strong>5 février 2024</strong>, à
+        <strong>temps plein</strong> (40 heures par semaine).
+      </p>
+
+      <p>
+        Notre commerce est une <strong>quincaillerie générale</strong> (plomberie, électricité, peinture, ciment,
+        fer, carreaux, tapis, droguerie). Le suivi repose sur des <strong>outils informatiques</strong> (postes,
+        logiciels de saisie, tableurs) pour les références, les entrées/sorties et les quantités en magasin et en
+        réserve.
+      </p>
+
+      <p>Ses missions comprenaient notamment :</p>
+      <ul>
+        <li>
+          <strong>Outils informatiques</strong> du point de vente : postes, périphériques (imprimante, lecteur),
+          logiciels de saisie et documents de vente ; <strong>assistance de premier niveau</strong> au comptoir et
+          en direction (usage des outils, dépannage simple).
+        </li>
+        <li>
+          <strong>Saisie et mise à jour</strong> des données de stock (fichiers, tableurs, écrans de gestion) et
+          cohérence des libellés avec les familles de produits.
+        </li>
+        <li>
+          <strong>Plateforme de stock</strong> : entrées (livraisons), sorties (ventes, retraits chantier),
+          ajustements ; <strong>pilotage</strong> des niveaux, seuils, commandes fournisseurs.
+        </li>
+        <li>
+          <strong>Inventaires</strong> et rapprochement données informatiques / physique ; collaboration avec la
+          direction pour l’organisation et la <strong>traçabilité</strong> des mouvements.
+        </li>
+      </ul>
+
+      <p class="closing">
+        Son travail a été accompli avec sérieux et autonomie dans le respect des procédures de l’entreprise.
+      </p>
+      <p>Cette attestation est délivrée pour servir et valoir ce que de droit.</p>
+
+      <div class="footer">
+        <p style="margin: 0; text-align: right">Fait à Rufisque, le <span id="date-hier"></span>.</p>
+      </div>
+
+      <div class="sig-block">
+        <p class="role">Le gérant,</p>
+        <p class="name">Monsieur Mohamet Diop</p>
+        <p class="sig-label" style="margin-bottom: 1.75rem">Signature</p>
+      </div>
+    </div>
+
+    <script>
+      function formaterHier() {
+        var d = new Date();
+        d.setDate(d.getDate() - 1);
+        return d.toLocaleDateString("fr-FR", {
+          day: "numeric",
+          month: "long",
+          year: "numeric"
+        });
+      }
+
+      function majDateHier() {
+        var el = document.getElementById("date-hier");
+        if (el) el.textContent = formaterHier();
+      }
+
+      document.addEventListener("DOMContentLoaded", majDateHier);
+
+      function openPrintWindow() {
+        majDateHier();
+        var styleEl = document.querySelector("style");
+        var root = document.getElementById("print-root");
+        if (!styleEl || !root) return;
+        var w = window.open("", "_blank");
+        if (!w) {
+          alert("Autorisez les fenêtres surgissantes pour ce site, puis réessayez.");
+          return;
+        }
+        var css = styleEl.textContent;
+        w.document.open();
+        w.document.write("<!DOCTYPE html><html lang=\"fr\"><head><meta charset=\"utf-8\"/>");
+        w.document.write("<title>\u200b</title><style>");
+        w.document.write(css);
+        w.document.write(
+          "\n body{margin:0;}\n #banner-print-hint{margin:12px;padding:10px 12px;font-size:10pt;background:#fff8e6;border:1px solid #e6d08c;border-radius:6px;font-family:system-ui,sans-serif;}"
+        );
+        w.document.write("</style></head><body>");
+        w.document.write(
+          '<div id="banner-print-hint" class="no-print"><strong>Avant d’imprimer :</strong> Plus de paramètres → décocher « En-têtes et pieds de page ».</div>'
+        );
+        w.document.write(root.innerHTML);
+        w.document.write("</body></html>");
+        w.document.close();
+        w.focus();
+      }
+    </script>
+  </body>
+</html>

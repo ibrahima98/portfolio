@@ -21,7 +21,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
-/** Classes partagées pour les blocs sous-projets (CBG, BPMN, Fanaye, Fripperie, At-Taqwa). */
+/** Classes partagées pour les blocs sous-projets (CBG, BPMN, Fanaye, Fripperie, At-Taqwa, quincaillerie). */
 const subProjectCard =
   "rounded-xl border border-border/60 bg-muted/30 dark:bg-muted/20 p-4 sm:p-5";
 const subProjectCardInner = "border-l-2 border-primary/40 pl-3";
@@ -476,6 +476,34 @@ export default function Home() {
                         >
                           Google Play — At-Taqwa
                         </a>
+                      </div>
+                    </div>
+
+                    <div className={subProjectCard}>
+                      <div className={subProjectCardInner}>
+                        <p className="text-sm font-semibold text-foreground mb-1">
+                          Keur Mame Abdou Aziz — Quincaillerie générale
+                        </p>
+                        <p className="text-sm text-muted-foreground mb-2">
+                          Mars 2023 – février 2024 · Rufisque
+                        </p>
+                        <p className="text-xs text-muted-foreground mb-2">
+                          Emploi temps plein — gestionnaire de plateforme de stock et d&apos;outils informatiques.
+                        </p>
+                        <ul className="space-y-2 text-sm text-muted-foreground leading-relaxed">
+                          <li>
+                            Gestion des postes, périphériques et logiciels de saisie ; assistance de premier niveau
+                            aux utilisateurs du magasin.
+                          </li>
+                          <li>
+                            Saisie et mise à jour des données de stock (tableurs, fichiers, écrans de gestion) ;
+                            inventaires et rapprochement données / physique.
+                          </li>
+                          <li>
+                            Suivi des références (plomberie, électricité, peinture, ciment, fer, carreaux, tapis,
+                            droguerie), des approvisionnements et de la traçabilité des mouvements.
+                          </li>
+                        </ul>
                       </div>
                     </div>
                   </div>
